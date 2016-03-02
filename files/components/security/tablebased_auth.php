@@ -78,6 +78,7 @@ class TableBasedIdentityCheckStrategy
     private $passwordFieldName;
     private $passwordEncryption;
     private $userIdFieldName;
+    private $captions;
 
     private $dataset;
 
@@ -116,6 +117,8 @@ class TableBasedIdentityCheckStrategy
 
     public function CheckUsernameAndPassword($username, $password, &$errorMessage)
     {
+        
+        $captions= new Captions('UTF-8');
         $this->dataset->AddFieldFilter(
             $this->userNameFieldName,
             new FieldFilter($username, '=', true));
@@ -129,13 +132,13 @@ class TableBasedIdentityCheckStrategy
             }
             else
             {
-                $errorMessage = 'The username/password combination you entered was invalid.';
+                $errorMessage = $captions->GetMessageString('BadUserCombination');
                 return false;
             }
         }
         else
         {
-            $errorMessage = 'The username/password combination you entered was invalid.';
+            $errorMessage = $captions->GetMessageString('BadUserCombination');
             return false;
         }
     }

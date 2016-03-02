@@ -14,7 +14,7 @@ else
     if (isset($_GET['lang']))
     {
         $lang = substr($_GET['lang'], 0, 2);
-        setcookie("lang", $lang, time()+3600);
+        setcookie("lang", $lang, time()+(60 * 60 * 24 * 60));
         
         if (file_exists("components/lang.".$lang.".php"))
             include_once("lang.".$lang.".php");
@@ -24,6 +24,7 @@ else
     elseif (isset($_COOKIE['lang']))
     {
         $lang = substr($_COOKIE['lang'], 0, 2);
+        setcookie("lang", $lang, time()+(60 * 60 * 24 * 60));
         if (file_exists("components/lang.".$lang.".php"))
             include_once("lang.".$lang.".php");
         else
@@ -55,6 +56,7 @@ class Captions
     private function GetCaptionByName($name)
     {
         $result = eval('global $c'.$name.'; return $c'.$name.';');
+        if ($result == '') return $name;
         return ConvertTextToEncoding($result, 'UTF-8', $this->pageEncoding);
     }
 

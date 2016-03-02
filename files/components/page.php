@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ALL ^ E_DEPRECATED);
 
 require_once 'libs/smartylibs/Smarty.class.php';
 
@@ -80,7 +81,6 @@ define('OPERATION_ADVANCED_SEARCH', 'advsrch');
 define('OPERATION_RSS', 'rss');
 
 define('OPERATION_HTTPHANDLER_REQUEST', 'httphandler');
-
 
 function GetOperation()
 {
@@ -1008,6 +1008,10 @@ class CustomLoginPage implements IPage
     public function RenderText($text)
     {
         return ConvertTextToEncoding($text, GetAnsiEncoding(), $this->GetContentEncoding());
+    }
+
+    public function GetShowPageList() {
+        return false;
     }
 }
 

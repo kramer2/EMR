@@ -1,5 +1,6 @@
 <?php
 
+define('ACCESS_ACEPTED', 'DEFINED_VAR');
 require_once 'engine.php';
 require_once 'pdo_engine.php';
 

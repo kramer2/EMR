@@ -18,9 +18,7 @@
 
 {if $UseFilter}
 {strip}
-    <div class="grid grid_menu" style="width: auto; padding: 10px; margin-top: 10px;">
-        {$SearchControl}
-    </div>
+    {$SearchControl}
     <br/>
 {/strip}
 {/if}
@@ -36,8 +34,8 @@
     EnableHighlightRowAtHover('.grid');
 </script>
 {/if}
-
-<table id="{$Grid->GetName()}" class="grid"{if !$Grid->UseAutoWidth()} style="width: {$Grid->GetWidth()}"{/if}>
+<div class="table-responsive">
+<table id="{$Grid->GetName()}" class="grid table"{if !$Grid->UseAutoWidth()} style="width: {$Grid->GetWidth()}"{/if}>
     {if $Grid->GetShowAddButton() or $AllowDeleteSelected or $Grid->GetShowUpdateLink()}
     <tr>
         {strip}
@@ -211,5 +209,5 @@
     </tr>
 {/if}
 </table>
-
+</div>
 {if $AllowDeleteSelected}</form>{/if}

@@ -1,7 +1,12 @@
 {if !$DateTimeEdit->GetReadOnly()}
 {if $RenderText}
-<input type="text" name="{$DateTimeEdit->GetName()}" id="{$DateTimeEdit->GetName()}" value="{$DateTimeEdit->GetValue()}">
-<button type="button" id="{$DateTimeEdit->GetName()}_trigger">...</button>
+<div class="input-group">
+  <input type="text" class="form-control" name="{$DateTimeEdit->GetName()}" id="{$DateTimeEdit->GetName()}" value="{$DateTimeEdit->GetValue()}">
+  <span class="input-group-btn">
+    <button type="button" id="{$DateTimeEdit->GetName()}_trigger" class="btn btn-default">...</button>
+  </span>
+</div>
+
 {/if}
 {if $RenderScripts}
 {if $RenderText}

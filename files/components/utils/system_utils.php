@@ -8,7 +8,8 @@ class SystemUtils
         {
             try
             {
-                set_magic_quotes_runtime(false);
+                //set_magic_quotes_runtime(false);
+                ini_set("magic_quotes_runtime", 0);
             }
             catch (Exception $e)
             { }

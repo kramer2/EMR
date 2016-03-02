@@ -5,6 +5,7 @@
 
 // error_reporting(E_ALL ^ E_NOTICE);
 // ini_set('display_errors', 'On');
+if ( ! defined('ACCESS_ACEPTED')) exit('No direct script access allowed');
 
 set_include_path('.' . PATH_SEPARATOR . get_include_path());
 
@@ -17,11 +18,11 @@ SystemUtils::DisableMagicQuotesRuntime();
 function GetGlobalConnectionOptions()
 {
     return array(
-  'server' => 'put_your_database_host_here',
+  'server' => 'localhost',
   'port' => '3306',
-  'username' => 'your_database_login_name',
-  'password' => 'your_database_password',
-  'database' => 'm11545_emr'
+  'username' => 'local',
+  'password' => '00',
+  'database' => 'emr'
 );
 }
 
@@ -39,13 +40,13 @@ function GetPageInfos()
 function GetPagesHeader()
 {
     return
-    '<p align="left">&nbsp;&nbsp; OpenSource EMR with stock control.</p>';
+    '<p>OnixSoftware EMR</p>';
 }
 
 function GetPagesFooter()
 {
     return
-        '<p align="right"><a href="http://r00t.pl" target="_blank">r00t.pl (2011)</a></p>'; 
+        '<p align="right"><a href="http://www.onix-software.com/" target="_blank">Onix Software</a></p>'; 
     }
 
 function ApplyCommonPageSettings($page, $grid)

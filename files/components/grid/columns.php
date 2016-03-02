@@ -280,13 +280,16 @@ abstract class CustomDatasetFieldViewColumn extends CustomViewColumn
         switch($currentOrderType)
         {
             case otAscending:
-                return ' <img src="images/sort_up.gif" style="border: 0;">';
+                //return ' <img src="images/sort_up.gif" style="border: 0;">';
+                return '<i class="glyphicon glyphicon-sort-by-attributes"></i>';
                 break;
             case otDescending:
-                return ' <img src="images/sort_down.gif" style="border: 0;">';
+                return '<i class="glyphicon glyphicon-sort-by-attributes-alt"></i>';
+                //return ' <img src="images/sort_down.gif" style="border: 0;">';
                 break;
             default:
-                return ' <img src="images/sort_none.gif" style="border: 0;">';
+                //return ' <img src="images/sort_none.gif" style="border: 0;">';
+                return '<i class="glyphicon glyphicon-sort"></i>';
                 break;
         }
     }
