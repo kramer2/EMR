@@ -10,10 +10,20 @@ require_once 'record_level_permissions.php';
 function GetCurrentUser()
 {
     // TODO : use SuperGlobals
-    if (isset($_COOKIE['username']))
-        return $_COOKIE['username'];
+    if (isset($_COOKIE['scplu'])) {
+        $uar= json_decode($_COOKIE['scplu']);
+        return decryptIt($uar->u);
+        //return $_COOKIE['username'];
+    }
     else
         return 'guest';
+}
+
+
+function decryptIt( $q ) {
+    $cryptKey  = 'qJB0rGtIn5UB1xG03efyCp';
+    $qDecoded      = rtrim( mcrypt_decrypt( MCRYPT_RIJNDAEL_256, md5( $cryptKey ), base64_decode( $q ), MCRYPT_MODE_CBC, md5( md5( $cryptKey ) ) ), "\0");
+    return( $qDecoded );
 }
 
 // TODO : remove this function

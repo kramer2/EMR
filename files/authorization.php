@@ -9,8 +9,10 @@ require_once 'components/security/user_grants_manager.php';
 
 require_once 'database_engine/mysql_engine.php';
 
-$grants = array('guest' => 
-        array()
+$grants = array('guest' => array(
+        'crew' => new DataSourceSecurityInfo(true, false, false,false),
+        'history' => new DataSourceSecurityInfo(true, false, false, false),
+    )
     ,
     'defaultUser' => 
         array('crew' => new DataSourceSecurityInfo(false, false, false, false),
@@ -94,7 +96,7 @@ $grants = array('guest' =>
         'stock_refresh' => new DataSourceSecurityInfo(false, false, false, false))
     );
 
-$appGrants = array('guest' => new DataSourceSecurityInfo(false, false, false, false),
+$appGrants = array('guest' => new DataSourceSecurityInfo(false, false,false,false),
     'defaultUser' => new DataSourceSecurityInfo(false, false, false, false),
     'admin' => new AdminDataSourceSecurityInfo(),
     'medic' => new DataSourceSecurityInfo(true, true, true, true),

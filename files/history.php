@@ -62,15 +62,15 @@
             $currentPageCaption = $this->GetShortCaption();
             $result = new PageList();
             if (GetCurrentUserGrantForDataSource('crew')->HasViewGrant())
-                $result->AddPage(new PageLink($this->RenderText('Crew'), 'crew.php', $this->RenderText('Crew'), $currentPageCaption == $this->RenderText('Crew')));
+                $result->AddPage(new PageLink($this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Crew')), 'crew.php', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Crew')), $currentPageCaption == $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Crew'))));
             if (GetCurrentUserGrantForDataSource('history')->HasViewGrant())
-                $result->AddPage(new PageLink($this->RenderText('History'), 'history.php', $this->RenderText('History'), $currentPageCaption == $this->RenderText('History')));
+                $result->AddPage(new PageLink($this->GetLocalizerCaptions()->GetMessageString($this->RenderText('History')), 'history.php', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('History')), $currentPageCaption == $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('History'))));
             if (GetCurrentUserGrantForDataSource('stock')->HasViewGrant())
-                $result->AddPage(new PageLink($this->RenderText('Stock'), 'stock.php', $this->RenderText('Stock'), $currentPageCaption == $this->RenderText('Stock')));
+                $result->AddPage(new PageLink($this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Stock')), 'stock.php', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Stock')), $currentPageCaption == $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Stock'))));
             if (GetCurrentUserGrantForDataSource('stock_expiry')->HasViewGrant())
-                $result->AddPage(new PageLink($this->RenderText('Stock Expiry'), 'stock_expiry.php', $this->RenderText('Stock Expiry'), $currentPageCaption == $this->RenderText('Stock Expiry')));
+                $result->AddPage(new PageLink($this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Stock_Expiry')), 'stock_expiry.php', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Stock_Expiry')), $currentPageCaption == $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Stock_Expiry'))));
             if (GetCurrentUserGrantForDataSource('stock_refresh')->HasViewGrant())
-                $result->AddPage(new PageLink($this->RenderText('Stock Refresh'), 'stock_refresh.php', $this->RenderText('Stock Refresh'), $currentPageCaption == $this->RenderText('Stock Refresh')));
+                $result->AddPage(new PageLink($this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Stock_Refresh')), 'stock_refresh.php', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Stock_Refresh')), $currentPageCaption == $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Stock_Refresh'))));
             return $result;
         }
     
@@ -84,7 +84,7 @@
             $grid->UseFilter = true;
             $grid->SearchControl = new SimpleSearch('historyssearch', $this->dataset,
                 array('date', 'complaint', 'examination'),
-                array($this->RenderText('Date'), $this->RenderText('Complaint'), $this->RenderText('Examination')),
+                array($this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Date')), $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Complaint')), $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Examination'))),
                 array(
                     '=' => $this->GetLocalizerCaptions()->GetMessageString('equals'),
                     '<>' => $this->GetLocalizerCaptions()->GetMessageString('doesNotEquals'),
@@ -103,13 +103,13 @@
         protected function CreateGridAdvancedSearchControl($grid)
         {
             $this->AdvancedSearchControl = new AdvancedSearchControl('historyasearch', $this->dataset, $this->GetLocalizerCaptions());
-            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('date', $this->RenderText('Date')));
-            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('pid_last_name', $this->RenderText('patient')));
-            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('complaint', $this->RenderText('Complaint')));
-            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('examination', $this->RenderText('Examination')));
-            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('diagnose', $this->RenderText('Diagnose')));
-            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('sid_generic_name', $this->RenderText('medicine')));
-            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('qty', $this->RenderText('Qty')));
+            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('date', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Date'))));
+            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('pid_last_name', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('patient'))));
+            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('complaint', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Complaint'))));
+            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('examination', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Examination'))));
+            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('diagnose', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Diagnose'))));
+            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('sid_generic_name', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('medicine'))));
+            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('qty', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Qty'))));
             $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('hid', $this->RenderText('Hid')));
         }
     
@@ -146,7 +146,7 @@
             //
             // View column for date field
             //
-            $column = new DateTimeViewColumn('date', 'Date', $this->dataset);
+            $column = new DateTimeViewColumn('date', $this->GetLocalizerCaptions()->GetMessageString('Date'), $this->dataset);
             $column->SetDateTimeFormat('Y-m-d');
             $column->SetOrderable(true);
             
@@ -180,7 +180,7 @@
             //
             // View column for last_name field
             //
-            $column = new TextViewColumn('pid_last_name', 'patient', $this->dataset);
+            $column = new TextViewColumn('pid_last_name', $this->GetLocalizerCaptions()->GetMessageString('patient'), $this->dataset);
             $column->SetOrderable(true);
             
             /* <inline edit column> */
@@ -239,7 +239,7 @@
             //
             // View column for complaint field
             //
-            $column = new TextViewColumn('complaint', 'Complaint', $this->dataset);
+            $column = new TextViewColumn('complaint', $this->GetLocalizerCaptions()->GetMessageString('Complaint'), $this->dataset);
             $column->SetOrderable(true);
             
             /* <inline edit column> */
@@ -274,7 +274,7 @@
             //
             // View column for examination field
             //
-            $column = new TextViewColumn('examination', 'Examination', $this->dataset);
+            $column = new TextViewColumn('examination', $this->GetLocalizerCaptions()->GetMessageString('Examination'), $this->dataset);
             $column->SetOrderable(true);
             
             /* <inline edit column> */
@@ -309,7 +309,7 @@
             //
             // View column for diagnose field
             //
-            $column = new TextViewColumn('diagnose', 'Diagnose', $this->dataset);
+            $column = new TextViewColumn('diagnose', $this->GetLocalizerCaptions()->GetMessageString('Diagnose'), $this->dataset);
             $column->SetOrderable(true);
             
             /* <inline edit column> */
@@ -344,7 +344,7 @@
             //
             // View column for generic_name field
             //
-            $column = new TextViewColumn('sid_generic_name', 'medicine', $this->dataset);
+            $column = new TextViewColumn('sid_generic_name', $this->GetLocalizerCaptions()->GetMessageString('medicine'), $this->dataset);
             $column->SetOrderable(true);
             
             /* <inline edit column> */
@@ -403,7 +403,7 @@
             //
             // View column for qty field
             //
-            $column = new TextViewColumn('qty', 'Qty', $this->dataset);
+            $column = new TextViewColumn('qty', $this->GetLocalizerCaptions()->GetMessageString('Qty'), $this->dataset);
             $column->SetOrderable(true);
             
             /* <inline edit column> */
@@ -439,7 +439,7 @@
             //
             // View column for date field
             //
-            $column = new DateTimeViewColumn('date', 'Date', $this->dataset);
+            $column = new DateTimeViewColumn('date', $this->GetLocalizerCaptions()->GetMessageString('Date'), $this->dataset);
             $column->SetDateTimeFormat('Y-m-d');
             $column->SetOrderable(true);
             $grid->AddSingleRecordViewColumn($column);
@@ -447,42 +447,42 @@
             //
             // View column for last_name field
             //
-            $column = new TextViewColumn('pid_last_name', 'patient', $this->dataset);
+            $column = new TextViewColumn('pid_last_name', $this->GetLocalizerCaptions()->GetMessageString('patient'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddSingleRecordViewColumn($column);
             
             //
             // View column for complaint field
             //
-            $column = new TextViewColumn('complaint', 'Complaint', $this->dataset);
+            $column = new TextViewColumn('complaint', $this->GetLocalizerCaptions()->GetMessageString('Complaint'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddSingleRecordViewColumn($column);
             
             //
             // View column for examination field
             //
-            $column = new TextViewColumn('examination', 'Examination', $this->dataset);
+            $column = new TextViewColumn('examination', $this->GetLocalizerCaptions()->GetMessageString('Examination'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddSingleRecordViewColumn($column);
             
             //
             // View column for diagnose field
             //
-            $column = new TextViewColumn('diagnose', 'Diagnose', $this->dataset);
+            $column = new TextViewColumn('diagnose', $this->GetLocalizerCaptions()->GetMessageString('Diagnose'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddSingleRecordViewColumn($column);
             
             //
             // View column for generic_name field
             //
-            $column = new TextViewColumn('sid_generic_name', 'medicine', $this->dataset);
+            $column = new TextViewColumn('sid_generic_name', $this->GetLocalizerCaptions()->GetMessageString('medicine'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddSingleRecordViewColumn($column);
             
             //
             // View column for qty field
             //
-            $column = new TextViewColumn('qty', 'Qty', $this->dataset);
+            $column = new TextViewColumn('qty', $this->GetLocalizerCaptions()->GetMessageString('Qty'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddSingleRecordViewColumn($column);
         }
@@ -493,7 +493,7 @@
             // Edit column for date field
             //
             $editor = new DateTimeEdit('date_edit', true, 'Y-m-d', 0);
-            $editColumn = new CustomEditColumn('Date', 'date', $editor, $this->dataset);
+            $editColumn = new CustomEditColumn($this->GetLocalizerCaptions()->GetMessageString('Date'), 'date', $editor, $this->dataset);
             $validator = new NotEmptyValidator(sprintf($this->GetLocalizerCaptions()->GetMessageString('FieldValueRequiredErrorMsg'), 'Date'));
             $editColumn->AddValidator($validator);
             $this->ApplyCommonColumnEditProperties($editColumn);
@@ -513,7 +513,7 @@
             $lookupDataset->AddField($field, false);
             $lookupDataset->SetOrderBy('last_name', GetOrderTypeAsSQL(otAscending));
             $editColumn = new LookUpEditColumn(
-                'patient', 
+                $this->GetLocalizerCaptions()->GetMessageString('patient'), 
                 'pid', 
                 $editor, 
                 $this->dataset, 'pid', 'last_name', $lookupDataset);
@@ -526,8 +526,8 @@
             // Edit column for complaint field
             //
             $editor = new TextEdit('complaint_edit');
-            $editor->SetSize(45);
-            $editColumn = new CustomEditColumn('Complaint', 'complaint', $editor, $this->dataset);
+            //$editor->SetSize(45);
+            $editColumn = new CustomEditColumn($this->GetLocalizerCaptions()->GetMessageString('Complaint'), 'complaint', $editor, $this->dataset);
             $validator = new NotEmptyValidator(sprintf($this->GetLocalizerCaptions()->GetMessageString('FieldValueRequiredErrorMsg'), 'Complaint'));
             $editColumn->AddValidator($validator);
             $this->ApplyCommonColumnEditProperties($editColumn);
@@ -537,8 +537,8 @@
             // Edit column for examination field
             //
             $editor = new TextEdit('examination_edit');
-            $editor->SetSize(45);
-            $editColumn = new CustomEditColumn('Examination', 'examination', $editor, $this->dataset);
+            //$editor->SetSize(45);
+            $editColumn = new CustomEditColumn($this->GetLocalizerCaptions()->GetMessageString('Examination'), 'examination', $editor, $this->dataset);
             $validator = new NotEmptyValidator(sprintf($this->GetLocalizerCaptions()->GetMessageString('FieldValueRequiredErrorMsg'), 'Examination'));
             $editColumn->AddValidator($validator);
             $this->ApplyCommonColumnEditProperties($editColumn);
@@ -548,8 +548,8 @@
             // Edit column for diagnose field
             //
             $editor = new TextEdit('diagnose_edit');
-            $editor->SetSize(45);
-            $editColumn = new CustomEditColumn('Diagnose', 'diagnose', $editor, $this->dataset);
+            //$editor->SetSize(45);
+            $editColumn = new CustomEditColumn($this->GetLocalizerCaptions()->GetMessageString('Diagnose'), 'diagnose', $editor, $this->dataset);
             $validator = new NotEmptyValidator(sprintf($this->GetLocalizerCaptions()->GetMessageString('FieldValueRequiredErrorMsg'), 'Diagnose'));
             $editColumn->AddValidator($validator);
             $this->ApplyCommonColumnEditProperties($editColumn);
@@ -569,7 +569,7 @@
             $lookupDataset->AddField($field, false);
             $lookupDataset->SetOrderBy('generic_name', GetOrderTypeAsSQL(otAscending));
             $editColumn = new LookUpEditColumn(
-                'medicine', 
+                $this->GetLocalizerCaptions()->GetMessageString('medicine'), 
                 'sid', 
                 $editor, 
                 $this->dataset, 'sid', 'generic_name', $lookupDataset);
@@ -582,7 +582,7 @@
             // Edit column for qty field
             //
             $editor = new TextEdit('qty_edit');
-            $editColumn = new CustomEditColumn('Qty', 'qty', $editor, $this->dataset);
+            $editColumn = new CustomEditColumn($this->GetLocalizerCaptions()->GetMessageString('Qty'), 'qty', $editor, $this->dataset);
             $validator = new NotEmptyValidator(sprintf($this->GetLocalizerCaptions()->GetMessageString('FieldValueRequiredErrorMsg'), 'Qty'));
             $editColumn->AddValidator($validator);
             $this->ApplyCommonColumnEditProperties($editColumn);
@@ -595,7 +595,7 @@
             // Edit column for date field
             //
             $editor = new DateTimeEdit('date_edit', true, 'Y-m-d', 0);
-            $editColumn = new CustomEditColumn('Date', 'date', $editor, $this->dataset);
+            $editColumn = new CustomEditColumn($this->GetLocalizerCaptions()->GetMessageString('Date'), 'date', $editor, $this->dataset);
             $validator = new NotEmptyValidator(sprintf($this->GetLocalizerCaptions()->GetMessageString('FieldValueRequiredErrorMsg'), 'Date'));
             $editColumn->AddValidator($validator);
             $this->ApplyCommonColumnEditProperties($editColumn);
@@ -615,7 +615,7 @@
             $lookupDataset->AddField($field, false);
             $lookupDataset->SetOrderBy('last_name', GetOrderTypeAsSQL(otAscending));
             $editColumn = new LookUpEditColumn(
-                'patient', 
+                $this->GetLocalizerCaptions()->GetMessageString('patient'), 
                 'pid', 
                 $editor, 
                 $this->dataset, 'pid', 'last_name', $lookupDataset);
@@ -628,8 +628,8 @@
             // Edit column for complaint field
             //
             $editor = new TextEdit('complaint_edit');
-            $editor->SetSize(45);
-            $editColumn = new CustomEditColumn('Complaint', 'complaint', $editor, $this->dataset);
+            //$editor->SetSize(45);
+            $editColumn = new CustomEditColumn($this->GetLocalizerCaptions()->GetMessageString('Complaint'), 'complaint', $editor, $this->dataset);
             $validator = new NotEmptyValidator(sprintf($this->GetLocalizerCaptions()->GetMessageString('FieldValueRequiredErrorMsg'), 'Complaint'));
             $editColumn->AddValidator($validator);
             $this->ApplyCommonColumnEditProperties($editColumn);
@@ -639,8 +639,8 @@
             // Edit column for examination field
             //
             $editor = new TextEdit('examination_edit');
-            $editor->SetSize(45);
-            $editColumn = new CustomEditColumn('Examination', 'examination', $editor, $this->dataset);
+            //$editor->SetSize(45);
+            $editColumn = new CustomEditColumn($this->GetLocalizerCaptions()->GetMessageString('Examination'), 'examination', $editor, $this->dataset);
             $validator = new NotEmptyValidator(sprintf($this->GetLocalizerCaptions()->GetMessageString('FieldValueRequiredErrorMsg'), 'Examination'));
             $editColumn->AddValidator($validator);
             $this->ApplyCommonColumnEditProperties($editColumn);
@@ -650,8 +650,8 @@
             // Edit column for diagnose field
             //
             $editor = new TextEdit('diagnose_edit');
-            $editor->SetSize(45);
-            $editColumn = new CustomEditColumn('Diagnose', 'diagnose', $editor, $this->dataset);
+            //$editor->SetSize(45);
+            $editColumn = new CustomEditColumn($this->GetLocalizerCaptions()->GetMessageString('Diagnose'), 'diagnose', $editor, $this->dataset);
             $validator = new NotEmptyValidator(sprintf($this->GetLocalizerCaptions()->GetMessageString('FieldValueRequiredErrorMsg'), 'Diagnose'));
             $editColumn->AddValidator($validator);
             $this->ApplyCommonColumnEditProperties($editColumn);
@@ -671,7 +671,7 @@
             $lookupDataset->AddField($field, false);
             $lookupDataset->SetOrderBy('generic_name', GetOrderTypeAsSQL(otAscending));
             $editColumn = new LookUpEditColumn(
-                'medicine', 
+                $this->GetLocalizerCaptions()->GetMessageString('medicine'), 
                 'sid', 
                 $editor, 
                 $this->dataset, 'sid', 'generic_name', $lookupDataset);
@@ -684,7 +684,7 @@
             // Edit column for qty field
             //
             $editor = new TextEdit('qty_edit');
-            $editColumn = new CustomEditColumn('Qty', 'qty', $editor, $this->dataset);
+            $editColumn = new CustomEditColumn($this->GetLocalizerCaptions()->GetMessageString('Qty'), 'qty', $editor, $this->dataset);
             $validator = new NotEmptyValidator(sprintf($this->GetLocalizerCaptions()->GetMessageString('FieldValueRequiredErrorMsg'), 'Qty'));
             $editColumn->AddValidator($validator);
             $this->ApplyCommonColumnEditProperties($editColumn);
@@ -706,7 +706,7 @@
             //
             // View column for date field
             //
-            $column = new DateTimeViewColumn('date', 'Date', $this->dataset);
+            $column = new DateTimeViewColumn('date', $this->GetLocalizerCaptions()->GetMessageString('Date'), $this->dataset);
             $column->SetDateTimeFormat('Y-m-d');
             $column->SetOrderable(true);
             $grid->AddPrintColumn($column);
@@ -714,42 +714,42 @@
             //
             // View column for last_name field
             //
-            $column = new TextViewColumn('pid_last_name', 'patient', $this->dataset);
+            $column = new TextViewColumn('pid_last_name', $this->GetLocalizerCaptions()->GetMessageString('patient'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddPrintColumn($column);
             
             //
             // View column for complaint field
             //
-            $column = new TextViewColumn('complaint', 'Complaint', $this->dataset);
+            $column = new TextViewColumn('complaint', $this->GetLocalizerCaptions()->GetMessageString('Complaint'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddPrintColumn($column);
             
             //
             // View column for examination field
             //
-            $column = new TextViewColumn('examination', 'Examination', $this->dataset);
+            $column = new TextViewColumn('examination', $this->GetLocalizerCaptions()->GetMessageString('Examination'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddPrintColumn($column);
             
             //
             // View column for diagnose field
             //
-            $column = new TextViewColumn('diagnose', 'Diagnose', $this->dataset);
+            $column = new TextViewColumn('diagnose', $this->GetLocalizerCaptions()->GetMessageString('Diagnose'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddPrintColumn($column);
             
             //
             // View column for generic_name field
             //
-            $column = new TextViewColumn('sid_generic_name', 'medicine', $this->dataset);
+            $column = new TextViewColumn('sid_generic_name', $this->GetLocalizerCaptions()->GetMessageString('medicine'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddPrintColumn($column);
             
             //
             // View column for qty field
             //
-            $column = new TextViewColumn('qty', 'Qty', $this->dataset);
+            $column = new TextViewColumn('qty', $this->GetLocalizerCaptions()->GetMessageString('Qty'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddPrintColumn($column);
         }
@@ -766,7 +766,7 @@
             //
             // View column for date field
             //
-            $column = new DateTimeViewColumn('date', 'Date', $this->dataset);
+            $column = new DateTimeViewColumn('date', $this->GetLocalizerCaptions()->GetMessageString('Date'), $this->dataset);
             $column->SetDateTimeFormat('Y-m-d');
             $column->SetOrderable(true);
             $grid->AddExportColumn($column);
@@ -774,42 +774,42 @@
             //
             // View column for last_name field
             //
-            $column = new TextViewColumn('pid_last_name', 'patient', $this->dataset);
+            $column = new TextViewColumn('pid_last_name', $this->GetLocalizerCaptions()->GetMessageString('patient'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddExportColumn($column);
             
             //
             // View column for complaint field
             //
-            $column = new TextViewColumn('complaint', 'Complaint', $this->dataset);
+            $column = new TextViewColumn('complaint', $this->GetLocalizerCaptions()->GetMessageString('Complaint'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddExportColumn($column);
             
             //
             // View column for examination field
             //
-            $column = new TextViewColumn('examination', 'Examination', $this->dataset);
+            $column = new TextViewColumn('examination', $this->GetLocalizerCaptions()->GetMessageString('Examination'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddExportColumn($column);
             
             //
             // View column for diagnose field
             //
-            $column = new TextViewColumn('diagnose', 'Diagnose', $this->dataset);
+            $column = new TextViewColumn('diagnose', $this->GetLocalizerCaptions()->GetMessageString('Diagnose'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddExportColumn($column);
             
             //
             // View column for generic_name field
             //
-            $column = new TextViewColumn('sid_generic_name', 'medicine', $this->dataset);
+            $column = new TextViewColumn('sid_generic_name', $this->GetLocalizerCaptions()->GetMessageString('medicine'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddExportColumn($column);
             
             //
             // View column for qty field
             //
-            $column = new TextViewColumn('qty', 'Qty', $this->dataset);
+            $column = new TextViewColumn('qty', $this->GetLocalizerCaptions()->GetMessageString('Qty'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddExportColumn($column);
         }
@@ -906,10 +906,10 @@
     try
     {
         $Page = new historyPage("history.php", "history", GetCurrentUserGrantForDataSource("history"), 'UTF-8');
-        $Page->SetShortCaption('History');
+        $Page->SetShortCaption($Page->GetLocalizerCaptions()->GetMessageString('History'));
         $Page->SetHeader(GetPagesHeader());
         $Page->SetFooter(GetPagesFooter());
-        $Page->SetCaption('History');
+        $Page->SetCaption($Page->GetLocalizerCaptions()->GetMessageString('History'));
         $Page->SetRecordPermission(GetCurrentUserRecordPermissionsForDataSource("history"));
 
         GetApplication()->SetMainPage($Page);

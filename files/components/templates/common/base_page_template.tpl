@@ -2,7 +2,8 @@
 <html{if $Page->GetPageDirection() != null} dir="{$Page->GetPageDirection()}"{/if}>
 <head>
     <meta http-equiv="content-type" content="text/html{if $Page->GetContentEncoding() != null}; charset={$Page->GetContentEncoding()}{/if}" />
-    <meta name="generator" content="Maestro PHP Generator" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
     {$HeadMetaTags}
     <title>{$Page->GetCaption()}</title>
     <!--[if lte IE 6]>
@@ -15,6 +16,12 @@
         {rdelim}
     </style>
     <![endif]-->
+
+    <script type="text/javascript" src="js/jquery-1.12.1.min.js"></script>
+    <script type="text/javascript">
+        var jqueryBoot = jQuery;
+        $.noConflict();
+    </script>
     <script type="text/javascript" src="libs/calendar/js/jscal2.js"></script>
     <script type="text/javascript" src="libs/calendar/js/lang/en.js"></script>
 
@@ -54,6 +61,10 @@
     <link rel="stylesheet" type="text/css" href="libs/spinedit/spincontrol.css" media="screen" />
     <script type="text/javascript" src="libs/spinedit/spincontrol.js"></script>
 
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/jasny-bootstrap.min.css" />
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jasny-bootstrap.min.js"></script>
     {$Page->GetCustomPageHeader()}
 
     <script type="text/javascript">
@@ -133,6 +144,30 @@
 
     {rdelim});
 	</script>
+    {literal}
+    <style type="text/css">
+        .navbar-toggle {
+            float: none;
+            margin-left: 15px;
+            display: inline;
+        }
+        .navbar-login {
+            width: 305px;
+            padding: 10px;
+            padding-bottom: 0px;
+        }
+
+        .navbar-login-session {
+            padding: 10px;
+            padding-bottom: 0px;
+            padding-top: 0px;
+        }
+
+        .icon-size {
+            font-size: 87px;
+        }
+    </style>
+    {/literal}
 </head>
 {$ContentBlock}
 {$DebugFooter}

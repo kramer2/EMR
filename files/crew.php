@@ -52,7 +52,7 @@
             //
             // View column for date field
             //
-            $column = new DateTimeViewColumn('date', 'Date', $this->dataset);
+            $column = new DateTimeViewColumn('date', $this->GetLocalizerCaptions()->GetMessageString('Date'), $this->dataset);
             $column->SetDateTimeFormat('Y-m-d');
             $column->SetOrderable(false);
             
@@ -86,7 +86,7 @@
             //
             // View column for last_name field
             //
-            $column = new TextViewColumn('pid_last_name', 'patient', $this->dataset);
+            $column = new TextViewColumn('pid_last_name', $this->GetLocalizerCaptions()->GetMessageString('patient'), $this->dataset);
             $column->SetOrderable(false);
             
             /* <inline edit column> */
@@ -145,7 +145,7 @@
             //
             // View column for complaint field
             //
-            $column = new TextViewColumn('complaint', 'Complaint', $this->dataset);
+            $column = new TextViewColumn('complaint', $this->GetLocalizerCaptions()->GetMessageString('Complaint'), $this->dataset);
             $column->SetOrderable(false);
             
             /* <inline edit column> */
@@ -180,7 +180,7 @@
             //
             // View column for examination field
             //
-            $column = new TextViewColumn('examination', 'Examination', $this->dataset);
+            $column = new TextViewColumn('examination', $this->GetLocalizerCaptions()->GetMessageString('Examination'), $this->dataset);
             $column->SetOrderable(false);
             
             /* <inline edit column> */
@@ -215,7 +215,7 @@
             //
             // View column for diagnose field
             //
-            $column = new TextViewColumn('diagnose', 'Diagnose', $this->dataset);
+            $column = new TextViewColumn('diagnose', $this->GetLocalizerCaptions()->GetMessageString('Diagnose'), $this->dataset);
             $column->SetOrderable(false);
             
             /* <inline edit column> */
@@ -250,7 +250,7 @@
             //
             // View column for generic_name field
             //
-            $column = new TextViewColumn('sid_generic_name', 'medicine', $this->dataset);
+            $column = new TextViewColumn('sid_generic_name', $this->GetLocalizerCaptions()->GetMessageString('medicine'), $this->dataset);
             $column->SetOrderable(false);
             
             /* <inline edit column> */
@@ -309,7 +309,7 @@
             //
             // View column for qty field
             //
-            $column = new TextViewColumn('qty', 'Qty', $this->dataset);
+            $column = new TextViewColumn('qty', $this->GetLocalizerCaptions()->GetMessageString('Qty'), $this->dataset);
             $column->SetOrderable(false);
             
             /* <inline edit column> */
@@ -434,7 +434,7 @@
             $grid->UseFilter = true;
             $grid->SearchControl = new SimpleSearch('historyDetailEdit0ssearch', $this->dataset,
                 array('date', 'pid_last_name', 'complaint', 'examination', 'diagnose', 'sid_generic_name', 'qty'),
-                array($this->RenderText('Date'), $this->RenderText('patient'), $this->RenderText('Complaint'), $this->RenderText('Examination'), $this->RenderText('Diagnose'), $this->RenderText('medicine'), $this->RenderText('Qty')),
+                array($this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Date')), $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('patient')), $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Complaint')), $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Examination')), $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Diagnose')), $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('medicine')), $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Qty'))),
                 array(
                     '=' => $this->GetLocalizerCaptions()->GetMessageString('equals'),
                     '<>' => $this->GetLocalizerCaptions()->GetMessageString('doesNotEquals'),
@@ -453,13 +453,13 @@
         protected function CreateGridAdvancedSearchControl($grid)
         {
             $this->AdvancedSearchControl = new AdvancedSearchControl('historyDetailEdit0asearch', $this->dataset, $this->GetLocalizerCaptions());
-            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('date', $this->RenderText('Date')));
-            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('pid_last_name', $this->RenderText('patient')));
-            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('complaint', $this->RenderText('Complaint')));
-            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('examination', $this->RenderText('Examination')));
-            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('diagnose', $this->RenderText('Diagnose')));
-            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('sid_generic_name', $this->RenderText('medicine')));
-            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('qty', $this->RenderText('Qty')));
+            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('date', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Date'))));
+            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('pid_last_name', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('patient'))));
+            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('complaint', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Complaint'))));
+            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('examination', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Examination'))));
+            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('diagnose', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Diagnose'))));
+            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('sid_generic_name', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('medicine'))));
+            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('qty', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Qty'))));
         }
     
         public function GetPageDirection()
@@ -500,7 +500,7 @@
             //
             // View column for date field
             //
-            $column = new DateTimeViewColumn('date', 'Date', $this->dataset);
+            $column = new DateTimeViewColumn('date', $this->GetLocalizerCaptions()->GetMessageString('Date'), $this->dataset);
             $column->SetDateTimeFormat('Y-m-d');
             $column->SetOrderable(true);
             
@@ -534,7 +534,7 @@
             //
             // View column for last_name field
             //
-            $column = new TextViewColumn('pid_last_name', 'patient', $this->dataset);
+            $column = new TextViewColumn('pid_last_name', $this->GetLocalizerCaptions()->GetMessageString('patient'), $this->dataset);
             $column->SetOrderable(true);
             
             /* <inline edit column> */
@@ -593,7 +593,7 @@
             //
             // View column for complaint field
             //
-            $column = new TextViewColumn('complaint', 'Complaint', $this->dataset);
+            $column = new TextViewColumn('complaint', $this->GetLocalizerCaptions()->GetMessageString('Complaint'), $this->dataset);
             $column->SetOrderable(true);
             
             /* <inline edit column> */
@@ -628,7 +628,7 @@
             //
             // View column for examination field
             //
-            $column = new TextViewColumn('examination', 'Examination', $this->dataset);
+            $column = new TextViewColumn('examination', $this->GetLocalizerCaptions()->GetMessageString('Examination'), $this->dataset);
             $column->SetOrderable(true);
             
             /* <inline edit column> */
@@ -663,7 +663,7 @@
             //
             // View column for diagnose field
             //
-            $column = new TextViewColumn('diagnose', 'Diagnose', $this->dataset);
+            $column = new TextViewColumn('diagnose', $this->GetLocalizerCaptions()->GetMessageString('Diagnose'), $this->dataset);
             $column->SetOrderable(true);
             
             /* <inline edit column> */
@@ -698,7 +698,7 @@
             //
             // View column for generic_name field
             //
-            $column = new TextViewColumn('sid_generic_name', 'medicine', $this->dataset);
+            $column = new TextViewColumn('sid_generic_name', $this->GetLocalizerCaptions()->GetMessageString('medicine'), $this->dataset);
             $column->SetOrderable(true);
             
             /* <inline edit column> */
@@ -757,7 +757,7 @@
             //
             // View column for qty field
             //
-            $column = new TextViewColumn('qty', 'Qty', $this->dataset);
+            $column = new TextViewColumn('qty', $this->GetLocalizerCaptions()->GetMessageString('Qty'), $this->dataset);
             $column->SetOrderable(true);
             
             /* <inline edit column> */
@@ -793,7 +793,7 @@
             //
             // View column for date field
             //
-            $column = new DateTimeViewColumn('date', 'Date', $this->dataset);
+            $column = new DateTimeViewColumn('date', $this->GetLocalizerCaptions()->GetMessageString('Date'), $this->dataset);
             $column->SetDateTimeFormat('Y-m-d');
             $column->SetOrderable(true);
             $grid->AddSingleRecordViewColumn($column);
@@ -801,42 +801,42 @@
             //
             // View column for last_name field
             //
-            $column = new TextViewColumn('pid_last_name', 'patient', $this->dataset);
+            $column = new TextViewColumn('pid_last_name', $this->GetLocalizerCaptions()->GetMessageString('patient'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddSingleRecordViewColumn($column);
             
             //
             // View column for complaint field
             //
-            $column = new TextViewColumn('complaint', 'Complaint', $this->dataset);
+            $column = new TextViewColumn('complaint', $this->GetLocalizerCaptions()->GetMessageString('Complaint'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddSingleRecordViewColumn($column);
             
             //
             // View column for examination field
             //
-            $column = new TextViewColumn('examination', 'Examination', $this->dataset);
+            $column = new TextViewColumn('examination', $this->GetLocalizerCaptions()->GetMessageString('Examination'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddSingleRecordViewColumn($column);
             
             //
             // View column for diagnose field
             //
-            $column = new TextViewColumn('diagnose', 'Diagnose', $this->dataset);
+            $column = new TextViewColumn('diagnose', $this->GetLocalizerCaptions()->GetMessageString('Diagnose'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddSingleRecordViewColumn($column);
             
             //
             // View column for generic_name field
             //
-            $column = new TextViewColumn('sid_generic_name', 'medicine', $this->dataset);
+            $column = new TextViewColumn('sid_generic_name', $this->GetLocalizerCaptions()->GetMessageString('medicine'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddSingleRecordViewColumn($column);
             
             //
             // View column for qty field
             //
-            $column = new TextViewColumn('qty', 'Qty', $this->dataset);
+            $column = new TextViewColumn('qty', $this->GetLocalizerCaptions()->GetMessageString('Qty'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddSingleRecordViewColumn($column);
         }
@@ -847,7 +847,7 @@
             // Edit column for date field
             //
             $editor = new DateTimeEdit('date_edit', true, 'Y-m-d', 0);
-            $editColumn = new CustomEditColumn('Date', 'date', $editor, $this->dataset);
+            $editColumn = new CustomEditColumn($this->GetLocalizerCaptions()->GetMessageString('Date'), 'date', $editor, $this->dataset);
             $validator = new NotEmptyValidator(sprintf($this->GetLocalizerCaptions()->GetMessageString('FieldValueRequiredErrorMsg'), 'Date'));
             $editColumn->AddValidator($validator);
             $this->ApplyCommonColumnEditProperties($editColumn);
@@ -867,7 +867,7 @@
             $lookupDataset->AddField($field, false);
             $lookupDataset->SetOrderBy('last_name', GetOrderTypeAsSQL(otAscending));
             $editColumn = new LookUpEditColumn(
-                'patient', 
+                $this->GetLocalizerCaptions()->GetMessageString('patient'), 
                 'pid', 
                 $editor, 
                 $this->dataset, 'pid', 'last_name', $lookupDataset);
@@ -880,8 +880,8 @@
             // Edit column for complaint field
             //
             $editor = new TextEdit('complaint_edit');
-            $editor->SetSize(45);
-            $editColumn = new CustomEditColumn('Complaint', 'complaint', $editor, $this->dataset);
+            //$editor->SetSize(45);
+            $editColumn = new CustomEditColumn($this->GetLocalizerCaptions()->GetMessageString('Complaint'), 'complaint', $editor, $this->dataset);
             $validator = new NotEmptyValidator(sprintf($this->GetLocalizerCaptions()->GetMessageString('FieldValueRequiredErrorMsg'), 'Complaint'));
             $editColumn->AddValidator($validator);
             $this->ApplyCommonColumnEditProperties($editColumn);
@@ -891,8 +891,8 @@
             // Edit column for examination field
             //
             $editor = new TextEdit('examination_edit');
-            $editor->SetSize(45);
-            $editColumn = new CustomEditColumn('Examination', 'examination', $editor, $this->dataset);
+            //$editor->SetSize(45);
+            $editColumn = new CustomEditColumn($this->GetLocalizerCaptions()->GetMessageString('Examination'), 'examination', $editor, $this->dataset);
             $validator = new NotEmptyValidator(sprintf($this->GetLocalizerCaptions()->GetMessageString('FieldValueRequiredErrorMsg'), 'Examination'));
             $editColumn->AddValidator($validator);
             $this->ApplyCommonColumnEditProperties($editColumn);
@@ -902,8 +902,8 @@
             // Edit column for diagnose field
             //
             $editor = new TextEdit('diagnose_edit');
-            $editor->SetSize(45);
-            $editColumn = new CustomEditColumn('Diagnose', 'diagnose', $editor, $this->dataset);
+            //$editor->SetSize(45);
+            $editColumn = new CustomEditColumn($this->GetLocalizerCaptions()->GetMessageString('Diagnose'), 'diagnose', $editor, $this->dataset);
             $validator = new NotEmptyValidator(sprintf($this->GetLocalizerCaptions()->GetMessageString('FieldValueRequiredErrorMsg'), 'Diagnose'));
             $editColumn->AddValidator($validator);
             $this->ApplyCommonColumnEditProperties($editColumn);
@@ -923,7 +923,7 @@
             $lookupDataset->AddField($field, false);
             $lookupDataset->SetOrderBy('generic_name', GetOrderTypeAsSQL(otAscending));
             $editColumn = new LookUpEditColumn(
-                'medicine', 
+                $this->GetLocalizerCaptions()->GetMessageString('medicine'), 
                 'sid', 
                 $editor, 
                 $this->dataset, 'sid', 'generic_name', $lookupDataset);
@@ -936,7 +936,7 @@
             // Edit column for qty field
             //
             $editor = new TextEdit('qty_edit');
-            $editColumn = new CustomEditColumn('Qty', 'qty', $editor, $this->dataset);
+            $editColumn = new CustomEditColumn($this->GetLocalizerCaptions()->GetMessageString('Qty'), 'qty', $editor, $this->dataset);
             $validator = new NotEmptyValidator(sprintf($this->GetLocalizerCaptions()->GetMessageString('FieldValueRequiredErrorMsg'), 'Qty'));
             $editColumn->AddValidator($validator);
             $this->ApplyCommonColumnEditProperties($editColumn);
@@ -949,7 +949,7 @@
             // Edit column for date field
             //
             $editor = new DateTimeEdit('date_edit', true, 'Y-m-d', 0);
-            $editColumn = new CustomEditColumn('Date', 'date', $editor, $this->dataset);
+            $editColumn = new CustomEditColumn($this->GetLocalizerCaptions()->GetMessageString('Date'), 'date', $editor, $this->dataset);
             $validator = new NotEmptyValidator(sprintf($this->GetLocalizerCaptions()->GetMessageString('FieldValueRequiredErrorMsg'), 'Date'));
             $editColumn->AddValidator($validator);
             $this->ApplyCommonColumnEditProperties($editColumn);
@@ -969,7 +969,7 @@
             $lookupDataset->AddField($field, false);
             $lookupDataset->SetOrderBy('last_name', GetOrderTypeAsSQL(otAscending));
             $editColumn = new LookUpEditColumn(
-                'patient', 
+                $this->GetLocalizerCaptions()->GetMessageString('patient'), 
                 'pid', 
                 $editor, 
                 $this->dataset, 'pid', 'last_name', $lookupDataset);
@@ -982,8 +982,8 @@
             // Edit column for complaint field
             //
             $editor = new TextEdit('complaint_edit');
-            $editor->SetSize(45);
-            $editColumn = new CustomEditColumn('Complaint', 'complaint', $editor, $this->dataset);
+            //$editor->SetSize(45);
+            $editColumn = new CustomEditColumn($this->GetLocalizerCaptions()->GetMessageString('Complaint'), 'complaint', $editor, $this->dataset);
             $validator = new NotEmptyValidator(sprintf($this->GetLocalizerCaptions()->GetMessageString('FieldValueRequiredErrorMsg'), 'Complaint'));
             $editColumn->AddValidator($validator);
             $this->ApplyCommonColumnEditProperties($editColumn);
@@ -993,8 +993,8 @@
             // Edit column for examination field
             //
             $editor = new TextEdit('examination_edit');
-            $editor->SetSize(45);
-            $editColumn = new CustomEditColumn('Examination', 'examination', $editor, $this->dataset);
+            //$editor->SetSize(45);
+            $editColumn = new CustomEditColumn($this->GetLocalizerCaptions()->GetMessageString('Examination'), 'examination', $editor, $this->dataset);
             $validator = new NotEmptyValidator(sprintf($this->GetLocalizerCaptions()->GetMessageString('FieldValueRequiredErrorMsg'), 'Examination'));
             $editColumn->AddValidator($validator);
             $this->ApplyCommonColumnEditProperties($editColumn);
@@ -1004,8 +1004,8 @@
             // Edit column for diagnose field
             //
             $editor = new TextEdit('diagnose_edit');
-            $editor->SetSize(45);
-            $editColumn = new CustomEditColumn('Diagnose', 'diagnose', $editor, $this->dataset);
+            //$editor->SetSize(45);
+            $editColumn = new CustomEditColumn($this->GetLocalizerCaptions()->GetMessageString('Diagnose'), 'diagnose', $editor, $this->dataset);
             $validator = new NotEmptyValidator(sprintf($this->GetLocalizerCaptions()->GetMessageString('FieldValueRequiredErrorMsg'), 'Diagnose'));
             $editColumn->AddValidator($validator);
             $this->ApplyCommonColumnEditProperties($editColumn);
@@ -1025,7 +1025,7 @@
             $lookupDataset->AddField($field, false);
             $lookupDataset->SetOrderBy('generic_name', GetOrderTypeAsSQL(otAscending));
             $editColumn = new LookUpEditColumn(
-                'medicine', 
+                $this->GetLocalizerCaptions()->GetMessageString('medicine'), 
                 'sid', 
                 $editor, 
                 $this->dataset, 'sid', 'generic_name', $lookupDataset);
@@ -1038,7 +1038,7 @@
             // Edit column for qty field
             //
             $editor = new TextEdit('qty_edit');
-            $editColumn = new CustomEditColumn('Qty', 'qty', $editor, $this->dataset);
+            $editColumn = new CustomEditColumn($this->GetLocalizerCaptions()->GetMessageString('Qty'), 'qty', $editor, $this->dataset);
             $validator = new NotEmptyValidator(sprintf($this->GetLocalizerCaptions()->GetMessageString('FieldValueRequiredErrorMsg'), 'Qty'));
             $editColumn->AddValidator($validator);
             $this->ApplyCommonColumnEditProperties($editColumn);
@@ -1060,7 +1060,7 @@
             //
             // View column for date field
             //
-            $column = new DateTimeViewColumn('date', 'Date', $this->dataset);
+            $column = new DateTimeViewColumn('date', $this->GetLocalizerCaptions()->GetMessageString('Date'), $this->dataset);
             $column->SetDateTimeFormat('Y-m-d');
             $column->SetOrderable(true);
             $grid->AddPrintColumn($column);
@@ -1068,42 +1068,42 @@
             //
             // View column for last_name field
             //
-            $column = new TextViewColumn('pid_last_name', 'patient', $this->dataset);
+            $column = new TextViewColumn('pid_last_name', $this->GetLocalizerCaptions()->GetMessageString('patient'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddPrintColumn($column);
             
             //
             // View column for complaint field
             //
-            $column = new TextViewColumn('complaint', 'Complaint', $this->dataset);
+            $column = new TextViewColumn('complaint', $this->GetLocalizerCaptions()->GetMessageString('Complaint'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddPrintColumn($column);
             
             //
             // View column for examination field
             //
-            $column = new TextViewColumn('examination', 'Examination', $this->dataset);
+            $column = new TextViewColumn('examination', $this->GetLocalizerCaptions()->GetMessageString('Examination'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddPrintColumn($column);
             
             //
             // View column for diagnose field
             //
-            $column = new TextViewColumn('diagnose', 'Diagnose', $this->dataset);
+            $column = new TextViewColumn('diagnose', $this->GetLocalizerCaptions()->GetMessageString('Diagnose'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddPrintColumn($column);
             
             //
             // View column for generic_name field
             //
-            $column = new TextViewColumn('sid_generic_name', 'medicine', $this->dataset);
+            $column = new TextViewColumn('sid_generic_name', $this->GetLocalizerCaptions()->GetMessageString('medicine'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddPrintColumn($column);
             
             //
             // View column for qty field
             //
-            $column = new TextViewColumn('qty', 'Qty', $this->dataset);
+            $column = new TextViewColumn('qty', $this->GetLocalizerCaptions()->GetMessageString('Qty'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddPrintColumn($column);
         }
@@ -1120,7 +1120,7 @@
             //
             // View column for date field
             //
-            $column = new DateTimeViewColumn('date', 'Date', $this->dataset);
+            $column = new DateTimeViewColumn('date', $this->GetLocalizerCaptions()->GetMessageString('Date'), $this->dataset);
             $column->SetDateTimeFormat('Y-m-d');
             $column->SetOrderable(true);
             $grid->AddExportColumn($column);
@@ -1128,42 +1128,42 @@
             //
             // View column for last_name field
             //
-            $column = new TextViewColumn('pid_last_name', 'patient', $this->dataset);
+            $column = new TextViewColumn('pid_last_name', $this->GetLocalizerCaptions()->GetMessageString('patient'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddExportColumn($column);
             
             //
             // View column for complaint field
             //
-            $column = new TextViewColumn('complaint', 'Complaint', $this->dataset);
+            $column = new TextViewColumn('complaint', $this->GetLocalizerCaptions()->GetMessageString('Complaint'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddExportColumn($column);
             
             //
             // View column for examination field
             //
-            $column = new TextViewColumn('examination', 'Examination', $this->dataset);
+            $column = new TextViewColumn('examination', $this->GetLocalizerCaptions()->GetMessageString('Examination'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddExportColumn($column);
             
             //
             // View column for diagnose field
             //
-            $column = new TextViewColumn('diagnose', 'Diagnose', $this->dataset);
+            $column = new TextViewColumn('diagnose', $this->GetLocalizerCaptions()->GetMessageString('Diagnose'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddExportColumn($column);
             
             //
             // View column for generic_name field
             //
-            $column = new TextViewColumn('sid_generic_name', 'medicine', $this->dataset);
+            $column = new TextViewColumn('sid_generic_name', $this->GetLocalizerCaptions()->GetMessageString('medicine'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddExportColumn($column);
             
             //
             // View column for qty field
             //
-            $column = new TextViewColumn('qty', 'Qty', $this->dataset);
+            $column = new TextViewColumn('qty', $this->GetLocalizerCaptions()->GetMessageString('Qty'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddExportColumn($column);
         }
@@ -1305,15 +1305,15 @@
             $currentPageCaption = $this->GetShortCaption();
             $result = new PageList();
             if (GetCurrentUserGrantForDataSource('crew')->HasViewGrant())
-                $result->AddPage(new PageLink($this->RenderText('Crew'), 'crew.php', $this->RenderText('Crew'), $currentPageCaption == $this->RenderText('Crew')));
+                $result->AddPage(new PageLink($this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Crew')), 'crew.php', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Crew')), $currentPageCaption == $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Crew'))));
             if (GetCurrentUserGrantForDataSource('history')->HasViewGrant())
-                $result->AddPage(new PageLink($this->RenderText('History'), 'history.php', $this->RenderText('History'), $currentPageCaption == $this->RenderText('History')));
+                $result->AddPage(new PageLink($this->GetLocalizerCaptions()->GetMessageString($this->RenderText('History')), 'history.php', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('History')), $currentPageCaption == $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('History'))));
             if (GetCurrentUserGrantForDataSource('stock')->HasViewGrant())
-                $result->AddPage(new PageLink($this->RenderText('Stock'), 'stock.php', $this->RenderText('Stock'), $currentPageCaption == $this->RenderText('Stock')));
+                $result->AddPage(new PageLink($this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Stock')), 'stock.php', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Stock')), $currentPageCaption == $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Stock'))));
             if (GetCurrentUserGrantForDataSource('stock_expiry')->HasViewGrant())
-                $result->AddPage(new PageLink($this->RenderText('Stock Expiry'), 'stock_expiry.php', $this->RenderText('Stock Expiry'), $currentPageCaption == $this->RenderText('Stock Expiry')));
+                $result->AddPage(new PageLink($this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Stock_Expiry')), 'stock_expiry.php', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Stock_Expiry')), $currentPageCaption == $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Stock_Expiry'))));
             if (GetCurrentUserGrantForDataSource('stock_refresh')->HasViewGrant())
-                $result->AddPage(new PageLink($this->RenderText('Stock Refresh'), 'stock_refresh.php', $this->RenderText('Stock Refresh'), $currentPageCaption == $this->RenderText('Stock Refresh')));
+                $result->AddPage(new PageLink($this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Stock_Refresh')), 'stock_refresh.php', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Stock_Refresh')), $currentPageCaption == $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Stock_Refresh'))));
             return $result;
         }
     
@@ -1327,7 +1327,7 @@
             $grid->UseFilter = true;
             $grid->SearchControl = new SimpleSearch('crewssearch', $this->dataset,
                 array('first_name', 'middle_name', 'last_name', 'dob', 'rank', 'company'),
-                array($this->RenderText('First Name'), $this->RenderText('Middle Name'), $this->RenderText('Last Name'), $this->RenderText('Dob'), $this->RenderText('Rank'), $this->RenderText('Company')),
+                array($this->GetLocalizerCaptions()->GetMessageString($this->RenderText('First_Name')), $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Middle_Name')), $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Last_Name')), $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Dob')), $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Rank')), $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Company'))),
                 array(
                     '=' => $this->GetLocalizerCaptions()->GetMessageString('equals'),
                     '<>' => $this->GetLocalizerCaptions()->GetMessageString('doesNotEquals'),
@@ -1346,20 +1346,20 @@
         protected function CreateGridAdvancedSearchControl($grid)
         {
             $this->AdvancedSearchControl = new AdvancedSearchControl('crewasearch', $this->dataset, $this->GetLocalizerCaptions());
-            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('first_name', $this->RenderText('First Name')));
-            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('middle_name', $this->RenderText('Middle Name')));
-            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('last_name', $this->RenderText('Last Name')));
-            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('dob', $this->RenderText('Dob')));
-            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('rank', $this->RenderText('Rank')));
-            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('sex', $this->RenderText('Sex')));
-            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('company', $this->RenderText('Company')));
-            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('alcohol', $this->RenderText('Alcohol')));
-            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('smoking', $this->RenderText('Smoking')));
-            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('allergies', $this->RenderText('Allergies')));
-            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('medication', $this->RenderText('Medication')));
-            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('immunization', $this->RenderText('Immunization')));
-            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('info', $this->RenderText('Info')));
-            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('pid', $this->RenderText('Pid')));
+            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('first_name', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('First_Name'))));
+            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('middle_name', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Middle_Name'))));
+            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('last_name', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Last_Name'))));
+            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('dob', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Dob'))));
+            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('rank', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Rank'))));
+            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('sex', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Sex'))));
+            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('company', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Company'))));
+            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('alcohol', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Alcohol'))));
+            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('smoking', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Smoking'))));
+            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('allergies', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Allergies'))));
+            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('medication', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Medication'))));
+            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('immunization', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Immunization'))));
+            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('info', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Info'))));
+            $this->AdvancedSearchControl->AddSearchColumn($this->AdvancedSearchControl->CreateStringSearchInput('pid', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Pid'))));
         }
     
         protected function AddOperationsColumns($grid)
@@ -1397,14 +1397,14 @@
               //
             // View column for historyDetailView0 detail
             //
-            $column = new DetailColumn(array('pid'), 'detail0', 'historyDetailEdit0_handler', 'historyDetailView0_handler', $this->dataset, 'History');
+            $column = new DetailColumn(array('pid'), 'detail0', 'historyDetailEdit0_handler', 'historyDetailView0_handler', $this->dataset, $this->GetLocalizerCaptions()->GetMessageString('History'));
               $grid->AddViewColumn($column);
             }
             
             //
             // View column for first_name field
             //
-            $column = new TextViewColumn('first_name', 'First Name', $this->dataset);
+            $column = new TextViewColumn('first_name', $this->GetLocalizerCaptions()->GetMessageString('First_Name'), $this->dataset);
             $column->SetOrderable(true);
             
             /* <inline edit column> */
@@ -1412,7 +1412,7 @@
             // Edit column for first_name field
             //
             $editor = new TextEdit('first_name_edit');
-            $editor->SetSize(45);
+            //$editor->SetSize(45);
             $editColumn = new CustomEditColumn('First Name', 'first_name', $editor, $this->dataset);
             $validator = new NotEmptyValidator(sprintf($this->GetLocalizerCaptions()->GetMessageString('FieldValueRequiredErrorMsg'), 'First Name'));
             $editColumn->AddValidator($validator);
@@ -1425,7 +1425,7 @@
             // Edit column for first_name field
             //
             $editor = new TextEdit('first_name_edit');
-            $editor->SetSize(45);
+            //$editor->SetSize(45);
             $editColumn = new CustomEditColumn('First Name', 'first_name', $editor, $this->dataset);
             $validator = new NotEmptyValidator(sprintf($this->GetLocalizerCaptions()->GetMessageString('FieldValueRequiredErrorMsg'), 'First Name'));
             $editColumn->AddValidator($validator);
@@ -1439,7 +1439,7 @@
             //
             // View column for middle_name field
             //
-            $column = new TextViewColumn('middle_name', 'Middle Name', $this->dataset);
+            $column = new TextViewColumn('middle_name', $this->GetLocalizerCaptions()->GetMessageString('Middle_Name'), $this->dataset);
             $column->SetOrderable(true);
             
             /* <inline edit column> */
@@ -1447,7 +1447,7 @@
             // Edit column for middle_name field
             //
             $editor = new TextEdit('middle_name_edit');
-            $editor->SetSize(45);
+            //$editor->SetSize(45);
             $editColumn = new CustomEditColumn('Middle Name', 'middle_name', $editor, $this->dataset);
             $validator = new NotEmptyValidator(sprintf($this->GetLocalizerCaptions()->GetMessageString('FieldValueRequiredErrorMsg'), 'Middle Name'));
             $editColumn->AddValidator($validator);
@@ -1460,7 +1460,7 @@
             // Edit column for middle_name field
             //
             $editor = new TextEdit('middle_name_edit');
-            $editor->SetSize(45);
+            //$editor->SetSize(45);
             $editColumn = new CustomEditColumn('Middle Name', 'middle_name', $editor, $this->dataset);
             $validator = new NotEmptyValidator(sprintf($this->GetLocalizerCaptions()->GetMessageString('FieldValueRequiredErrorMsg'), 'Middle Name'));
             $editColumn->AddValidator($validator);
@@ -1474,7 +1474,7 @@
             //
             // View column for last_name field
             //
-            $column = new TextViewColumn('last_name', 'Last Name', $this->dataset);
+            $column = new TextViewColumn('last_name', $this->GetLocalizerCaptions()->GetMessageString('Last_Name'), $this->dataset);
             $column->SetOrderable(true);
             
             /* <inline edit column> */
@@ -1482,7 +1482,7 @@
             // Edit column for last_name field
             //
             $editor = new TextEdit('last_name_edit');
-            $editor->SetSize(45);
+            //$editor->SetSize(45);
             $editColumn = new CustomEditColumn('Last Name', 'last_name', $editor, $this->dataset);
             $validator = new NotEmptyValidator(sprintf($this->GetLocalizerCaptions()->GetMessageString('FieldValueRequiredErrorMsg'), 'Last Name'));
             $editColumn->AddValidator($validator);
@@ -1495,7 +1495,7 @@
             // Edit column for last_name field
             //
             $editor = new TextEdit('last_name_edit');
-            $editor->SetSize(45);
+            //$editor->SetSize(45);
             $editColumn = new CustomEditColumn('Last Name', 'last_name', $editor, $this->dataset);
             $validator = new NotEmptyValidator(sprintf($this->GetLocalizerCaptions()->GetMessageString('FieldValueRequiredErrorMsg'), 'Last Name'));
             $editColumn->AddValidator($validator);
@@ -1509,7 +1509,7 @@
             //
             // View column for dob field
             //
-            $column = new DateTimeViewColumn('dob', 'Dob', $this->dataset);
+            $column = new DateTimeViewColumn('dob', $this->GetLocalizerCaptions()->GetMessageString('Dob'), $this->dataset);
             $column->SetDateTimeFormat('Y-m-d');
             $column->SetOrderable(true);
             
@@ -1543,7 +1543,7 @@
             //
             // View column for rank field
             //
-            $column = new TextViewColumn('rank', 'Rank', $this->dataset);
+            $column = new TextViewColumn('rank', $this->GetLocalizerCaptions()->GetMessageString('Rank'), $this->dataset);
             $column->SetOrderable(true);
             
             /* <inline edit column> */
@@ -1551,7 +1551,7 @@
             // Edit column for rank field
             //
             $editor = new TextEdit('rank_edit');
-            $editor->SetSize(45);
+            //$editor->SetSize(45);
             $editColumn = new CustomEditColumn('Rank', 'rank', $editor, $this->dataset);
             $validator = new NotEmptyValidator(sprintf($this->GetLocalizerCaptions()->GetMessageString('FieldValueRequiredErrorMsg'), 'Rank'));
             $editColumn->AddValidator($validator);
@@ -1564,7 +1564,7 @@
             // Edit column for rank field
             //
             $editor = new TextEdit('rank_edit');
-            $editor->SetSize(45);
+            //$editor->SetSize(45);
             $editColumn = new CustomEditColumn('Rank', 'rank', $editor, $this->dataset);
             $validator = new NotEmptyValidator(sprintf($this->GetLocalizerCaptions()->GetMessageString('FieldValueRequiredErrorMsg'), 'Rank'));
             $editColumn->AddValidator($validator);
@@ -1578,7 +1578,7 @@
             //
             // View column for sex field
             //
-            $column = new TextViewColumn('sex', 'Sex', $this->dataset);
+            $column = new TextViewColumn('sex', $this->GetLocalizerCaptions()->GetMessageString('Sex'), $this->dataset);
             $column->SetOrderable(true);
             
             /* <inline edit column> */
@@ -1615,7 +1615,7 @@
             //
             // View column for company field
             //
-            $column = new TextViewColumn('company', 'Company', $this->dataset);
+            $column = new TextViewColumn('company', $this->GetLocalizerCaptions()->GetMessageString('Company'), $this->dataset);
             $column->SetOrderable(true);
             
             /* <inline edit column> */
@@ -1623,7 +1623,7 @@
             // Edit column for company field
             //
             $editor = new TextEdit('company_edit');
-            $editor->SetSize(45);
+            //$editor->SetSize(45);
             $editColumn = new CustomEditColumn('Company', 'company', $editor, $this->dataset);
             $validator = new NotEmptyValidator(sprintf($this->GetLocalizerCaptions()->GetMessageString('FieldValueRequiredErrorMsg'), 'Company'));
             $editColumn->AddValidator($validator);
@@ -1636,7 +1636,7 @@
             // Edit column for company field
             //
             $editor = new TextEdit('company_edit');
-            $editor->SetSize(45);
+            //$editor->SetSize(45);
             $editColumn = new CustomEditColumn('Company', 'company', $editor, $this->dataset);
             $validator = new NotEmptyValidator(sprintf($this->GetLocalizerCaptions()->GetMessageString('FieldValueRequiredErrorMsg'), 'Company'));
             $editColumn->AddValidator($validator);
@@ -1650,7 +1650,7 @@
             //
             // View column for alcohol field
             //
-            $column = new TextViewColumn('alcohol', 'Alcohol', $this->dataset);
+            $column = new TextViewColumn('alcohol', $this->GetLocalizerCaptions()->GetMessageString('Alcohol'), $this->dataset);
             $column->SetOrderable(true);
             
             /* <inline edit column> */
@@ -1658,8 +1658,8 @@
             // Edit column for alcohol field
             //
             $editor = new CheckBoxGroup('alcohol_edit');
-            $editor->AddValue('N', $this->RenderText('N'));
-            $editor->AddValue('Y', $this->RenderText('Y'));
+            $editor->AddValue('N', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('N')));
+            $editor->AddValue('Y', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Y')));
             $editColumn = new CustomEditColumn('Alcohol', 'alcohol', $editor, $this->dataset);
             $editColumn->SetAllowSetToNull(true);
             $this->ApplyCommonColumnEditProperties($editColumn);
@@ -1671,8 +1671,8 @@
             // Edit column for alcohol field
             //
             $editor = new CheckBoxGroup('alcohol_edit');
-            $editor->AddValue('N', $this->RenderText('N'));
-            $editor->AddValue('Y', $this->RenderText('Y'));
+            $editor->AddValue('N', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('N')));
+            $editor->AddValue('Y', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Y')));
             $editColumn = new CustomEditColumn('Alcohol', 'alcohol', $editor, $this->dataset);
             $editColumn->SetAllowSetToNull(true);
             $this->ApplyCommonColumnEditProperties($editColumn);
@@ -1685,7 +1685,7 @@
             //
             // View column for smoking field
             //
-            $column = new TextViewColumn('smoking', 'Smoking', $this->dataset);
+            $column = new TextViewColumn('smoking', $this->GetLocalizerCaptions()->GetMessageString('Smoking'), $this->dataset);
             $column->SetOrderable(true);
             
             /* <inline edit column> */
@@ -1720,7 +1720,7 @@
             //
             // View column for allergies field
             //
-            $column = new TextViewColumn('allergies', 'Allergies', $this->dataset);
+            $column = new TextViewColumn('allergies', $this->GetLocalizerCaptions()->GetMessageString('Allergies'), $this->dataset);
             $column->SetOrderable(true);
             
             /* <inline edit column> */
@@ -1728,7 +1728,7 @@
             // Edit column for allergies field
             //
             $editor = new TextEdit('allergies_edit');
-            $editor->SetSize(45);
+            //$editor->SetSize(45);
             $editColumn = new CustomEditColumn('Allergies', 'allergies', $editor, $this->dataset);
             $editColumn->SetAllowSetToNull(true);
             $this->ApplyCommonColumnEditProperties($editColumn);
@@ -1740,7 +1740,7 @@
             // Edit column for allergies field
             //
             $editor = new TextEdit('allergies_edit');
-            $editor->SetSize(45);
+            //$editor->SetSize(45);
             $editColumn = new CustomEditColumn('Allergies', 'allergies', $editor, $this->dataset);
             $editColumn->SetAllowSetToNull(true);
             $this->ApplyCommonColumnEditProperties($editColumn);
@@ -1753,7 +1753,7 @@
             //
             // View column for medication field
             //
-            $column = new TextViewColumn('medication', 'Medication', $this->dataset);
+            $column = new TextViewColumn('medication', $this->GetLocalizerCaptions()->GetMessageString('Medication'), $this->dataset);
             $column->SetOrderable(true);
             
             /* <inline edit column> */
@@ -1761,7 +1761,7 @@
             // Edit column for medication field
             //
             $editor = new TextEdit('medication_edit');
-            $editor->SetSize(45);
+            //$editor->SetSize(45);
             $editColumn = new CustomEditColumn('Medication', 'medication', $editor, $this->dataset);
             $editColumn->SetAllowSetToNull(true);
             $this->ApplyCommonColumnEditProperties($editColumn);
@@ -1773,7 +1773,7 @@
             // Edit column for medication field
             //
             $editor = new TextEdit('medication_edit');
-            $editor->SetSize(45);
+            //$editor->SetSize(45);
             $editColumn = new CustomEditColumn('Medication', 'medication', $editor, $this->dataset);
             $editColumn->SetAllowSetToNull(true);
             $this->ApplyCommonColumnEditProperties($editColumn);
@@ -1786,7 +1786,7 @@
             //
             // View column for immunization field
             //
-            $column = new TextViewColumn('immunization', 'Immunization', $this->dataset);
+            $column = new TextViewColumn('immunization', $this->GetLocalizerCaptions()->GetMessageString('Immunization'), $this->dataset);
             $column->SetOrderable(true);
             
             /* <inline edit column> */
@@ -1794,7 +1794,7 @@
             // Edit column for immunization field
             //
             $editor = new TextEdit('immunization_edit');
-            $editor->SetSize(45);
+            //$editor->SetSize(45);
             $editColumn = new CustomEditColumn('Immunization', 'immunization', $editor, $this->dataset);
             $editColumn->SetAllowSetToNull(true);
             $this->ApplyCommonColumnEditProperties($editColumn);
@@ -1806,7 +1806,7 @@
             // Edit column for immunization field
             //
             $editor = new TextEdit('immunization_edit');
-            $editor->SetSize(45);
+            //$editor->SetSize(45);
             $editColumn = new CustomEditColumn('Immunization', 'immunization', $editor, $this->dataset);
             $editColumn->SetAllowSetToNull(true);
             $this->ApplyCommonColumnEditProperties($editColumn);
@@ -1819,7 +1819,7 @@
             //
             // View column for info field
             //
-            $column = new TextViewColumn('info', 'Info', $this->dataset);
+            $column = new TextViewColumn('info', $this->GetLocalizerCaptions()->GetMessageString('Info'), $this->dataset);
             $column->SetOrderable(true);
             
             /* <inline edit column> */
@@ -1827,7 +1827,7 @@
             // Edit column for info field
             //
             $editor = new TextEdit('info_edit');
-            $editor->SetSize(45);
+            //$editor->SetSize(45);
             $editColumn = new CustomEditColumn('Info', 'info', $editor, $this->dataset);
             $editColumn->SetAllowSetToNull(true);
             $this->ApplyCommonColumnEditProperties($editColumn);
@@ -1839,7 +1839,7 @@
             // Edit column for info field
             //
             $editor = new TextEdit('info_edit');
-            $editor->SetSize(45);
+            //$editor->SetSize(45);
             $editColumn = new CustomEditColumn('Info', 'info', $editor, $this->dataset);
             $editColumn->SetAllowSetToNull(true);
             $this->ApplyCommonColumnEditProperties($editColumn);
@@ -1855,28 +1855,28 @@
             //
             // View column for first_name field
             //
-            $column = new TextViewColumn('first_name', 'First Name', $this->dataset);
+            $column = new TextViewColumn('first_name', $this->GetLocalizerCaptions()->GetMessageString('First_Name'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddSingleRecordViewColumn($column);
             
             //
             // View column for middle_name field
             //
-            $column = new TextViewColumn('middle_name', 'Middle Name', $this->dataset);
+            $column = new TextViewColumn('middle_name', $this->GetLocalizerCaptions()->GetMessageString('Middle_Name'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddSingleRecordViewColumn($column);
             
             //
             // View column for last_name field
             //
-            $column = new TextViewColumn('last_name', 'Last Name', $this->dataset);
+            $column = new TextViewColumn('last_name', $this->GetLocalizerCaptions()->GetMessageString('Last_Name'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddSingleRecordViewColumn($column);
             
             //
             // View column for dob field
             //
-            $column = new DateTimeViewColumn('dob', 'Dob', $this->dataset);
+            $column = new DateTimeViewColumn('dob', $this->GetLocalizerCaptions()->GetMessageString('Dob'), $this->dataset);
             $column->SetDateTimeFormat('Y-m-d');
             $column->SetOrderable(true);
             $grid->AddSingleRecordViewColumn($column);
@@ -1884,63 +1884,63 @@
             //
             // View column for rank field
             //
-            $column = new TextViewColumn('rank', 'Rank', $this->dataset);
+            $column = new TextViewColumn('rank', $this->GetLocalizerCaptions()->GetMessageString('Rank'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddSingleRecordViewColumn($column);
             
             //
             // View column for sex field
             //
-            $column = new TextViewColumn('sex', 'Sex', $this->dataset);
+            $column = new TextViewColumn('sex', $this->GetLocalizerCaptions()->GetMessageString('Sex'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddSingleRecordViewColumn($column);
             
             //
             // View column for company field
             //
-            $column = new TextViewColumn('company', 'Company', $this->dataset);
+            $column = new TextViewColumn('company', $this->GetLocalizerCaptions()->GetMessageString('Company'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddSingleRecordViewColumn($column);
             
             //
             // View column for alcohol field
             //
-            $column = new TextViewColumn('alcohol', 'Alcohol', $this->dataset);
+            $column = new TextViewColumn('alcohol', $this->GetLocalizerCaptions()->GetMessageString('Alcohol'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddSingleRecordViewColumn($column);
             
             //
             // View column for smoking field
             //
-            $column = new TextViewColumn('smoking', 'Smoking', $this->dataset);
+            $column = new TextViewColumn('smoking', $this->GetLocalizerCaptions()->GetMessageString('Smoking'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddSingleRecordViewColumn($column);
             
             //
             // View column for allergies field
             //
-            $column = new TextViewColumn('allergies', 'Allergies', $this->dataset);
+            $column = new TextViewColumn('allergies', $this->GetLocalizerCaptions()->GetMessageString('Allergies'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddSingleRecordViewColumn($column);
             
             //
             // View column for medication field
             //
-            $column = new TextViewColumn('medication', 'Medication', $this->dataset);
+            $column = new TextViewColumn('medication', $this->GetLocalizerCaptions()->GetMessageString('Medication'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddSingleRecordViewColumn($column);
             
             //
             // View column for immunization field
             //
-            $column = new TextViewColumn('immunization', 'Immunization', $this->dataset);
+            $column = new TextViewColumn('immunization', $this->GetLocalizerCaptions()->GetMessageString('Immunization'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddSingleRecordViewColumn($column);
             
             //
             // View column for info field
             //
-            $column = new TextViewColumn('info', 'Info', $this->dataset);
+            $column = new TextViewColumn('info', $this->GetLocalizerCaptions()->GetMessageString('Info'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddSingleRecordViewColumn($column);
         }
@@ -1951,8 +1951,8 @@
             // Edit column for first_name field
             //
             $editor = new TextEdit('first_name_edit');
-            $editor->SetSize(45);
-            $editColumn = new CustomEditColumn('First Name', 'first_name', $editor, $this->dataset);
+            //$editor->SetSize(45);
+            $editColumn = new CustomEditColumn($this->GetLocalizerCaptions()->GetMessageString('First_Name'), 'first_name', $editor, $this->dataset);
             $validator = new NotEmptyValidator(sprintf($this->GetLocalizerCaptions()->GetMessageString('FieldValueRequiredErrorMsg'), 'First Name'));
             $editColumn->AddValidator($validator);
             $this->ApplyCommonColumnEditProperties($editColumn);
@@ -1962,8 +1962,8 @@
             // Edit column for middle_name field
             //
             $editor = new TextEdit('middle_name_edit');
-            $editor->SetSize(45);
-            $editColumn = new CustomEditColumn('Middle Name', 'middle_name', $editor, $this->dataset);
+            //$editor->SetSize(45);
+            $editColumn = new CustomEditColumn($this->GetLocalizerCaptions()->GetMessageString('Middle_Name'), 'middle_name', $editor, $this->dataset);
             $validator = new NotEmptyValidator(sprintf($this->GetLocalizerCaptions()->GetMessageString('FieldValueRequiredErrorMsg'), 'Middle Name'));
             $editColumn->AddValidator($validator);
             $this->ApplyCommonColumnEditProperties($editColumn);
@@ -1973,8 +1973,8 @@
             // Edit column for last_name field
             //
             $editor = new TextEdit('last_name_edit');
-            $editor->SetSize(45);
-            $editColumn = new CustomEditColumn('Last Name', 'last_name', $editor, $this->dataset);
+            //$editor->SetSize(45);
+            $editColumn = new CustomEditColumn($this->GetLocalizerCaptions()->GetMessageString('Last_Name'), 'last_name', $editor, $this->dataset);
             $validator = new NotEmptyValidator(sprintf($this->GetLocalizerCaptions()->GetMessageString('FieldValueRequiredErrorMsg'), 'Last Name'));
             $editColumn->AddValidator($validator);
             $this->ApplyCommonColumnEditProperties($editColumn);
@@ -1984,7 +1984,7 @@
             // Edit column for dob field
             //
             $editor = new DateTimeEdit('dob_edit', true, 'Y-m-d', 0);
-            $editColumn = new CustomEditColumn('Dob', 'dob', $editor, $this->dataset);
+            $editColumn = new CustomEditColumn($this->GetLocalizerCaptions()->GetMessageString('Dob'), 'dob', $editor, $this->dataset);
             $validator = new NotEmptyValidator(sprintf($this->GetLocalizerCaptions()->GetMessageString('FieldValueRequiredErrorMsg'), 'Dob'));
             $editColumn->AddValidator($validator);
             $this->ApplyCommonColumnEditProperties($editColumn);
@@ -1994,8 +1994,8 @@
             // Edit column for rank field
             //
             $editor = new TextEdit('rank_edit');
-            $editor->SetSize(45);
-            $editColumn = new CustomEditColumn('Rank', 'rank', $editor, $this->dataset);
+            //$editor->SetSize(45);
+            $editColumn = new CustomEditColumn($this->GetLocalizerCaptions()->GetMessageString('Rank'), 'rank', $editor, $this->dataset);
             $validator = new NotEmptyValidator(sprintf($this->GetLocalizerCaptions()->GetMessageString('FieldValueRequiredErrorMsg'), 'Rank'));
             $editColumn->AddValidator($validator);
             $this->ApplyCommonColumnEditProperties($editColumn);
@@ -2007,7 +2007,7 @@
             $editor = new CheckBoxGroup('sex_edit');
             $editor->AddValue('M', $this->RenderText('M'));
             $editor->AddValue('F', $this->RenderText('F'));
-            $editColumn = new CustomEditColumn('Sex', 'sex', $editor, $this->dataset);
+            $editColumn = new CustomEditColumn($this->GetLocalizerCaptions()->GetMessageString('Sex'), 'sex', $editor, $this->dataset);
             $validator = new NotEmptyValidator(sprintf($this->GetLocalizerCaptions()->GetMessageString('FieldValueRequiredErrorMsg'), 'Sex'));
             $editColumn->AddValidator($validator);
             $this->ApplyCommonColumnEditProperties($editColumn);
@@ -2017,8 +2017,8 @@
             // Edit column for company field
             //
             $editor = new TextEdit('company_edit');
-            $editor->SetSize(45);
-            $editColumn = new CustomEditColumn('Company', 'company', $editor, $this->dataset);
+            //$editor->SetSize(45);
+            $editColumn = new CustomEditColumn($this->GetLocalizerCaptions()->GetMessageString('Company'), 'company', $editor, $this->dataset);
             $validator = new NotEmptyValidator(sprintf($this->GetLocalizerCaptions()->GetMessageString('FieldValueRequiredErrorMsg'), 'Company'));
             $editColumn->AddValidator($validator);
             $this->ApplyCommonColumnEditProperties($editColumn);
@@ -2028,9 +2028,9 @@
             // Edit column for alcohol field
             //
             $editor = new CheckBoxGroup('alcohol_edit');
-            $editor->AddValue('N', $this->RenderText('N'));
-            $editor->AddValue('Y', $this->RenderText('Y'));
-            $editColumn = new CustomEditColumn('Alcohol', 'alcohol', $editor, $this->dataset);
+            $editor->AddValue('N', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('N')));
+            $editor->AddValue('Y', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Y')));
+            $editColumn = new CustomEditColumn($this->GetLocalizerCaptions()->GetMessageString('Alcohol'), 'alcohol', $editor, $this->dataset);
             $editColumn->SetAllowSetToNull(true);
             $this->ApplyCommonColumnEditProperties($editColumn);
             $grid->AddEditColumn($editColumn);
@@ -2039,9 +2039,9 @@
             // Edit column for smoking field
             //
             $editor = new CheckBoxGroup('smoking_edit');
-            $editor->AddValue('N', $this->RenderText('N'));
-            $editor->AddValue('Y', $this->RenderText('Y'));
-            $editColumn = new CustomEditColumn('Smoking', 'smoking', $editor, $this->dataset);
+            $editor->AddValue('N', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('N')));
+            $editor->AddValue('Y', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Y')));
+            $editColumn = new CustomEditColumn($this->GetLocalizerCaptions()->GetMessageString('Smoking'), 'smoking', $editor, $this->dataset);
             $editColumn->SetAllowSetToNull(true);
             $this->ApplyCommonColumnEditProperties($editColumn);
             $grid->AddEditColumn($editColumn);
@@ -2050,8 +2050,8 @@
             // Edit column for allergies field
             //
             $editor = new TextEdit('allergies_edit');
-            $editor->SetSize(45);
-            $editColumn = new CustomEditColumn('Allergies', 'allergies', $editor, $this->dataset);
+            //$editor->SetSize(45);
+            $editColumn = new CustomEditColumn($this->GetLocalizerCaptions()->GetMessageString('Allergies'), 'allergies', $editor, $this->dataset);
             $editColumn->SetAllowSetToNull(true);
             $this->ApplyCommonColumnEditProperties($editColumn);
             $grid->AddEditColumn($editColumn);
@@ -2060,8 +2060,8 @@
             // Edit column for medication field
             //
             $editor = new TextEdit('medication_edit');
-            $editor->SetSize(45);
-            $editColumn = new CustomEditColumn('Medication', 'medication', $editor, $this->dataset);
+            //$editor->SetSize(45);
+            $editColumn = new CustomEditColumn($this->GetLocalizerCaptions()->GetMessageString('Medication'), 'medication', $editor, $this->dataset);
             $editColumn->SetAllowSetToNull(true);
             $this->ApplyCommonColumnEditProperties($editColumn);
             $grid->AddEditColumn($editColumn);
@@ -2070,8 +2070,8 @@
             // Edit column for immunization field
             //
             $editor = new TextEdit('immunization_edit');
-            $editor->SetSize(45);
-            $editColumn = new CustomEditColumn('Immunization', 'immunization', $editor, $this->dataset);
+            //$editor->SetSize(45);
+            $editColumn = new CustomEditColumn($this->GetLocalizerCaptions()->GetMessageString('Immunization'), 'immunization', $editor, $this->dataset);
             $editColumn->SetAllowSetToNull(true);
             $this->ApplyCommonColumnEditProperties($editColumn);
             $grid->AddEditColumn($editColumn);
@@ -2080,8 +2080,8 @@
             // Edit column for info field
             //
             $editor = new TextEdit('info_edit');
-            $editor->SetSize(45);
-            $editColumn = new CustomEditColumn('Info', 'info', $editor, $this->dataset);
+            //$editor->SetSize(45);
+            $editColumn = new CustomEditColumn($this->GetLocalizerCaptions()->GetMessageString('Info'), 'info', $editor, $this->dataset);
             $editColumn->SetAllowSetToNull(true);
             $this->ApplyCommonColumnEditProperties($editColumn);
             $grid->AddEditColumn($editColumn);
@@ -2093,8 +2093,8 @@
             // Edit column for first_name field
             //
             $editor = new TextEdit('first_name_edit');
-            $editor->SetSize(45);
-            $editColumn = new CustomEditColumn('First Name', 'first_name', $editor, $this->dataset);
+            //$editor->SetSize(45);
+            $editColumn = new CustomEditColumn($this->GetLocalizerCaptions()->GetMessageString('First_Name'), 'first_name', $editor, $this->dataset);
             $validator = new NotEmptyValidator(sprintf($this->GetLocalizerCaptions()->GetMessageString('FieldValueRequiredErrorMsg'), 'First Name'));
             $editColumn->AddValidator($validator);
             $this->ApplyCommonColumnEditProperties($editColumn);
@@ -2104,8 +2104,8 @@
             // Edit column for middle_name field
             //
             $editor = new TextEdit('middle_name_edit');
-            $editor->SetSize(45);
-            $editColumn = new CustomEditColumn('Middle Name', 'middle_name', $editor, $this->dataset);
+            //$editor->SetSize(45);
+            $editColumn = new CustomEditColumn($this->GetLocalizerCaptions()->GetMessageString('Middle_Name'), 'middle_name', $editor, $this->dataset);
             $validator = new NotEmptyValidator(sprintf($this->GetLocalizerCaptions()->GetMessageString('FieldValueRequiredErrorMsg'), 'Middle Name'));
             $editColumn->AddValidator($validator);
             $this->ApplyCommonColumnEditProperties($editColumn);
@@ -2115,8 +2115,8 @@
             // Edit column for last_name field
             //
             $editor = new TextEdit('last_name_edit');
-            $editor->SetSize(45);
-            $editColumn = new CustomEditColumn('Last Name', 'last_name', $editor, $this->dataset);
+            //$editor->SetSize(45);
+            $editColumn = new CustomEditColumn($this->GetLocalizerCaptions()->GetMessageString('Last_Name'), 'last_name', $editor, $this->dataset);
             $validator = new NotEmptyValidator(sprintf($this->GetLocalizerCaptions()->GetMessageString('FieldValueRequiredErrorMsg'), 'Last Name'));
             $editColumn->AddValidator($validator);
             $this->ApplyCommonColumnEditProperties($editColumn);
@@ -2126,7 +2126,7 @@
             // Edit column for dob field
             //
             $editor = new DateTimeEdit('dob_edit', true, 'Y-m-d', 0);
-            $editColumn = new CustomEditColumn('Dob', 'dob', $editor, $this->dataset);
+            $editColumn = new CustomEditColumn($this->GetLocalizerCaptions()->GetMessageString('Dob'), 'dob', $editor, $this->dataset);
             $validator = new NotEmptyValidator(sprintf($this->GetLocalizerCaptions()->GetMessageString('FieldValueRequiredErrorMsg'), 'Dob'));
             $editColumn->AddValidator($validator);
             $this->ApplyCommonColumnEditProperties($editColumn);
@@ -2136,8 +2136,8 @@
             // Edit column for rank field
             //
             $editor = new TextEdit('rank_edit');
-            $editor->SetSize(45);
-            $editColumn = new CustomEditColumn('Rank', 'rank', $editor, $this->dataset);
+            //$editor->SetSize(45);
+            $editColumn = new CustomEditColumn($this->GetLocalizerCaptions()->GetMessageString('Rank'), 'rank', $editor, $this->dataset);
             $validator = new NotEmptyValidator(sprintf($this->GetLocalizerCaptions()->GetMessageString('FieldValueRequiredErrorMsg'), 'Rank'));
             $editColumn->AddValidator($validator);
             $this->ApplyCommonColumnEditProperties($editColumn);
@@ -2149,7 +2149,7 @@
             $editor = new CheckBoxGroup('sex_edit');
             $editor->AddValue('M', $this->RenderText('M'));
             $editor->AddValue('F', $this->RenderText('F'));
-            $editColumn = new CustomEditColumn('Sex', 'sex', $editor, $this->dataset);
+            $editColumn = new CustomEditColumn($this->GetLocalizerCaptions()->GetMessageString('Sex'), 'sex', $editor, $this->dataset);
             $validator = new NotEmptyValidator(sprintf($this->GetLocalizerCaptions()->GetMessageString('FieldValueRequiredErrorMsg'), 'Sex'));
             $editColumn->AddValidator($validator);
             $this->ApplyCommonColumnEditProperties($editColumn);
@@ -2159,8 +2159,8 @@
             // Edit column for company field
             //
             $editor = new TextEdit('company_edit');
-            $editor->SetSize(45);
-            $editColumn = new CustomEditColumn('Company', 'company', $editor, $this->dataset);
+            //$editor->SetSize(45);
+            $editColumn = new CustomEditColumn($this->GetLocalizerCaptions()->GetMessageString('Company'), 'company', $editor, $this->dataset);
             $validator = new NotEmptyValidator(sprintf($this->GetLocalizerCaptions()->GetMessageString('FieldValueRequiredErrorMsg'), 'Company'));
             $editColumn->AddValidator($validator);
             $this->ApplyCommonColumnEditProperties($editColumn);
@@ -2170,9 +2170,9 @@
             // Edit column for alcohol field
             //
             $editor = new CheckBoxGroup('alcohol_edit');
-            $editor->AddValue('N', $this->RenderText('N'));
-            $editor->AddValue('Y', $this->RenderText('Y'));
-            $editColumn = new CustomEditColumn('Alcohol', 'alcohol', $editor, $this->dataset);
+            $editor->AddValue('N', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('N')));
+            $editor->AddValue('Y', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Y')));
+            $editColumn = new CustomEditColumn($this->GetLocalizerCaptions()->GetMessageString('Alcohol'), 'alcohol', $editor, $this->dataset);
             $editColumn->SetAllowSetToNull(true);
             $this->ApplyCommonColumnEditProperties($editColumn);
             $grid->AddInsertColumn($editColumn);
@@ -2181,9 +2181,9 @@
             // Edit column for smoking field
             //
             $editor = new CheckBoxGroup('smoking_edit');
-            $editor->AddValue('N', $this->RenderText('N'));
-            $editor->AddValue('Y', $this->RenderText('Y'));
-            $editColumn = new CustomEditColumn('Smoking', 'smoking', $editor, $this->dataset);
+            $editor->AddValue('N', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('N')));
+            $editor->AddValue('Y', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Y')));
+            $editColumn = new CustomEditColumn($this->GetLocalizerCaptions()->GetMessageString('Smoking'), 'smoking', $editor, $this->dataset);
             $editColumn->SetAllowSetToNull(true);
             $this->ApplyCommonColumnEditProperties($editColumn);
             $grid->AddInsertColumn($editColumn);
@@ -2192,8 +2192,8 @@
             // Edit column for allergies field
             //
             $editor = new TextEdit('allergies_edit');
-            $editor->SetSize(45);
-            $editColumn = new CustomEditColumn('Allergies', 'allergies', $editor, $this->dataset);
+            //$editor->SetSize(45);
+            $editColumn = new CustomEditColumn($this->GetLocalizerCaptions()->GetMessageString('Allergies'), 'allergies', $editor, $this->dataset);
             $editColumn->SetAllowSetToNull(true);
             $this->ApplyCommonColumnEditProperties($editColumn);
             $grid->AddInsertColumn($editColumn);
@@ -2202,8 +2202,8 @@
             // Edit column for medication field
             //
             $editor = new TextEdit('medication_edit');
-            $editor->SetSize(45);
-            $editColumn = new CustomEditColumn('Medication', 'medication', $editor, $this->dataset);
+            //$editor->SetSize(45);
+            $editColumn = new CustomEditColumn($this->GetLocalizerCaptions()->GetMessageString('Medication'), 'medication', $editor, $this->dataset);
             $editColumn->SetAllowSetToNull(true);
             $this->ApplyCommonColumnEditProperties($editColumn);
             $grid->AddInsertColumn($editColumn);
@@ -2212,8 +2212,8 @@
             // Edit column for immunization field
             //
             $editor = new TextEdit('immunization_edit');
-            $editor->SetSize(45);
-            $editColumn = new CustomEditColumn('Immunization', 'immunization', $editor, $this->dataset);
+            //$editor->SetSize(45);
+            $editColumn = new CustomEditColumn($this->GetLocalizerCaptions()->GetMessageString('Immunization'), 'immunization', $editor, $this->dataset);
             $editColumn->SetAllowSetToNull(true);
             $this->ApplyCommonColumnEditProperties($editColumn);
             $grid->AddInsertColumn($editColumn);
@@ -2222,8 +2222,8 @@
             // Edit column for info field
             //
             $editor = new TextEdit('info_edit');
-            $editor->SetSize(45);
-            $editColumn = new CustomEditColumn('Info', 'info', $editor, $this->dataset);
+            //$editor->SetSize(45);
+            $editColumn = new CustomEditColumn($this->GetLocalizerCaptions()->GetMessageString('Info'), 'info', $editor, $this->dataset);
             $editColumn->SetAllowSetToNull(true);
             $this->ApplyCommonColumnEditProperties($editColumn);
             $grid->AddInsertColumn($editColumn);
@@ -2244,28 +2244,28 @@
             //
             // View column for first_name field
             //
-            $column = new TextViewColumn('first_name', 'First Name', $this->dataset);
+            $column = new TextViewColumn('first_name', $this->GetLocalizerCaptions()->GetMessageString('First_Name'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddPrintColumn($column);
             
             //
             // View column for middle_name field
             //
-            $column = new TextViewColumn('middle_name', 'Middle Name', $this->dataset);
+            $column = new TextViewColumn('middle_name', $this->GetLocalizerCaptions()->GetMessageString('Middle_Name'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddPrintColumn($column);
             
             //
             // View column for last_name field
             //
-            $column = new TextViewColumn('last_name', 'Last Name', $this->dataset);
+            $column = new TextViewColumn('last_name', $this->GetLocalizerCaptions()->GetMessageString('Last_Name'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddPrintColumn($column);
             
             //
             // View column for dob field
             //
-            $column = new DateTimeViewColumn('dob', 'Dob', $this->dataset);
+            $column = new DateTimeViewColumn('dob', $this->GetLocalizerCaptions()->GetMessageString('Dob'), $this->dataset);
             $column->SetDateTimeFormat('Y-m-d');
             $column->SetOrderable(true);
             $grid->AddPrintColumn($column);
@@ -2273,63 +2273,63 @@
             //
             // View column for rank field
             //
-            $column = new TextViewColumn('rank', 'Rank', $this->dataset);
+            $column = new TextViewColumn('rank', $this->GetLocalizerCaptions()->GetMessageString('Rank'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddPrintColumn($column);
             
             //
             // View column for sex field
             //
-            $column = new TextViewColumn('sex', 'Sex', $this->dataset);
+            $column = new TextViewColumn('sex', $this->GetLocalizerCaptions()->GetMessageString('Sex'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddPrintColumn($column);
             
             //
             // View column for company field
             //
-            $column = new TextViewColumn('company', 'Company', $this->dataset);
+            $column = new TextViewColumn('company', $this->GetLocalizerCaptions()->GetMessageString('Company'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddPrintColumn($column);
             
             //
             // View column for alcohol field
             //
-            $column = new TextViewColumn('alcohol', 'Alcohol', $this->dataset);
+            $column = new TextViewColumn('alcohol', $this->GetLocalizerCaptions()->GetMessageString('Alcohol'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddPrintColumn($column);
             
             //
             // View column for smoking field
             //
-            $column = new TextViewColumn('smoking', 'Smoking', $this->dataset);
+            $column = new TextViewColumn('smoking', $this->GetLocalizerCaptions()->GetMessageString('Smoking'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddPrintColumn($column);
             
             //
             // View column for allergies field
             //
-            $column = new TextViewColumn('allergies', 'Allergies', $this->dataset);
+            $column = new TextViewColumn('allergies', $this->GetLocalizerCaptions()->GetMessageString('Allergies'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddPrintColumn($column);
             
             //
             // View column for medication field
             //
-            $column = new TextViewColumn('medication', 'Medication', $this->dataset);
+            $column = new TextViewColumn('medication', $this->GetLocalizerCaptions()->GetMessageString('Medication'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddPrintColumn($column);
             
             //
             // View column for immunization field
             //
-            $column = new TextViewColumn('immunization', 'Immunization', $this->dataset);
+            $column = new TextViewColumn('immunization', $this->GetLocalizerCaptions()->GetMessageString('Immunization'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddPrintColumn($column);
             
             //
             // View column for info field
             //
-            $column = new TextViewColumn('info', 'Info', $this->dataset);
+            $column = new TextViewColumn('info', $this->GetLocalizerCaptions()->GetMessageString('Info'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddPrintColumn($column);
         }
@@ -2346,28 +2346,28 @@
             //
             // View column for first_name field
             //
-            $column = new TextViewColumn('first_name', 'First Name', $this->dataset);
+            $column = new TextViewColumn('first_name', $this->GetLocalizerCaptions()->GetMessageString('First_Name'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddExportColumn($column);
             
             //
             // View column for middle_name field
             //
-            $column = new TextViewColumn('middle_name', 'Middle Name', $this->dataset);
+            $column = new TextViewColumn('middle_name', $this->GetLocalizerCaptions()->GetMessageString('Middle_Name'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddExportColumn($column);
             
             //
             // View column for last_name field
             //
-            $column = new TextViewColumn('last_name', 'Last Name', $this->dataset);
+            $column = new TextViewColumn('last_name', $this->GetLocalizerCaptions()->GetMessageString('Last_Name'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddExportColumn($column);
             
             //
             // View column for dob field
             //
-            $column = new DateTimeViewColumn('dob', 'Dob', $this->dataset);
+            $column = new DateTimeViewColumn('dob', $this->GetLocalizerCaptions()->GetMessageString('Dob'), $this->dataset);
             $column->SetDateTimeFormat('Y-m-d');
             $column->SetOrderable(true);
             $grid->AddExportColumn($column);
@@ -2375,63 +2375,63 @@
             //
             // View column for rank field
             //
-            $column = new TextViewColumn('rank', 'Rank', $this->dataset);
+            $column = new TextViewColumn('rank', $this->GetLocalizerCaptions()->GetMessageString('Rank'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddExportColumn($column);
             
             //
             // View column for sex field
             //
-            $column = new TextViewColumn('sex', 'Sex', $this->dataset);
+            $column = new TextViewColumn('sex', $this->GetLocalizerCaptions()->GetMessageString('Sex'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddExportColumn($column);
             
             //
             // View column for company field
             //
-            $column = new TextViewColumn('company', 'Company', $this->dataset);
+            $column = new TextViewColumn('company', $this->GetLocalizerCaptions()->GetMessageString('Company'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddExportColumn($column);
             
             //
             // View column for alcohol field
             //
-            $column = new TextViewColumn('alcohol', 'Alcohol', $this->dataset);
+            $column = new TextViewColumn('alcohol', $this->GetLocalizerCaptions()->GetMessageString('Alcohol'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddExportColumn($column);
             
             //
             // View column for smoking field
             //
-            $column = new TextViewColumn('smoking', 'Smoking', $this->dataset);
+            $column = new TextViewColumn('smoking', $this->GetLocalizerCaptions()->GetMessageString('Smoking'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddExportColumn($column);
             
             //
             // View column for allergies field
             //
-            $column = new TextViewColumn('allergies', 'Allergies', $this->dataset);
+            $column = new TextViewColumn('allergies', $this->GetLocalizerCaptions()->GetMessageString('Allergies'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddExportColumn($column);
             
             //
             // View column for medication field
             //
-            $column = new TextViewColumn('medication', 'Medication', $this->dataset);
+            $column = new TextViewColumn('medication', $this->GetLocalizerCaptions()->GetMessageString('Medication'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddExportColumn($column);
             
             //
             // View column for immunization field
             //
-            $column = new TextViewColumn('immunization', 'Immunization', $this->dataset);
+            $column = new TextViewColumn('immunization', $this->GetLocalizerCaptions()->GetMessageString('Immunization'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddExportColumn($column);
             
             //
             // View column for info field
             //
-            $column = new TextViewColumn('info', 'Info', $this->dataset);
+            $column = new TextViewColumn('info', $this->GetLocalizerCaptions()->GetMessageString('Info'), $this->dataset);
             $column->SetOrderable(true);
             $grid->AddExportColumn($column);
         }
@@ -2457,7 +2457,7 @@
             //
             // View column for first_name field
             //
-            $column = new TextViewColumn('first_name', 'First Name', $this->dataset);
+            $column = new TextViewColumn('first_name', $this->GetLocalizerCaptions()->GetMessageString('First_Name'), $this->dataset);
             $column->SetOrderable(true);
             
             /* <inline edit column> */
@@ -2492,7 +2492,7 @@
             //
             // View column for middle_name field
             //
-            $column = new TextViewColumn('middle_name', 'Middle Name', $this->dataset);
+            $column = new TextViewColumn('middle_name', $this->GetLocalizerCaptions()->GetMessageString('Middle_Name'), $this->dataset);
             $column->SetOrderable(true);
             
             /* <inline edit column> */
@@ -2527,7 +2527,7 @@
             //
             // View column for last_name field
             //
-            $column = new TextViewColumn('last_name', 'Last Name', $this->dataset);
+            $column = new TextViewColumn('last_name', $this->GetLocalizerCaptions()->GetMessageString('Last_Name'), $this->dataset);
             $column->SetOrderable(true);
             
             /* <inline edit column> */
@@ -2562,7 +2562,7 @@
             //
             // View column for dob field
             //
-            $column = new DateTimeViewColumn('dob', 'Dob', $this->dataset);
+            $column = new DateTimeViewColumn('dob', $this->GetLocalizerCaptions()->GetMessageString('Dob'), $this->dataset);
             $column->SetDateTimeFormat('Y-m-d');
             $column->SetOrderable(true);
             
@@ -2596,7 +2596,7 @@
             //
             // View column for rank field
             //
-            $column = new TextViewColumn('rank', 'Rank', $this->dataset);
+            $column = new TextViewColumn('rank', $this->GetLocalizerCaptions()->GetMessageString('Rank'), $this->dataset);
             $column->SetOrderable(true);
             
             /* <inline edit column> */
@@ -2631,7 +2631,7 @@
             //
             // View column for sex field
             //
-            $column = new TextViewColumn('sex', 'Sex', $this->dataset);
+            $column = new TextViewColumn('sex', $this->GetLocalizerCaptions()->GetMessageString('Sex'), $this->dataset);
             $column->SetOrderable(true);
             
             /* <inline edit column> */
@@ -2668,7 +2668,7 @@
             //
             // View column for company field
             //
-            $column = new TextViewColumn('company', 'Company', $this->dataset);
+            $column = new TextViewColumn('company', $this->GetLocalizerCaptions()->GetMessageString('Company'), $this->dataset);
             $column->SetOrderable(true);
             
             /* <inline edit column> */
@@ -2703,7 +2703,7 @@
             //
             // View column for alcohol field
             //
-            $column = new TextViewColumn('alcohol', 'Alcohol', $this->dataset);
+            $column = new TextViewColumn('alcohol', $this->GetLocalizerCaptions()->GetMessageString('Alcohol'), $this->dataset);
             $column->SetOrderable(true);
             
             /* <inline edit column> */
@@ -2711,8 +2711,8 @@
             // Edit column for alcohol field
             //
             $editor = new CheckBoxGroup('alcohol_edit');
-            $editor->AddValue('N', $this->RenderText('N'));
-            $editor->AddValue('Y', $this->RenderText('Y'));
+            $editor->AddValue('N', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('N')));
+            $editor->AddValue('Y', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Y')));
             $editColumn = new CustomEditColumn('Alcohol', 'alcohol', $editor, $this->dataset);
             $editColumn->SetAllowSetToNull(true);
             $this->ApplyCommonColumnEditProperties($editColumn);
@@ -2724,8 +2724,8 @@
             // Edit column for alcohol field
             //
             $editor = new CheckBoxGroup('alcohol_edit');
-            $editor->AddValue('N', $this->RenderText('N'));
-            $editor->AddValue('Y', $this->RenderText('Y'));
+            $editor->AddValue('N', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('N')));
+            $editor->AddValue('Y', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Y')));
             $editColumn = new CustomEditColumn('Alcohol', 'alcohol', $editor, $this->dataset);
             $editColumn->SetAllowSetToNull(true);
             $this->ApplyCommonColumnEditProperties($editColumn);
@@ -2738,7 +2738,7 @@
             //
             // View column for smoking field
             //
-            $column = new TextViewColumn('smoking', 'Smoking', $this->dataset);
+            $column = new TextViewColumn('smoking', $this->GetLocalizerCaptions()->GetMessageString('Smoking'), $this->dataset);
             $column->SetOrderable(true);
             
             /* <inline edit column> */
@@ -2746,8 +2746,8 @@
             // Edit column for smoking field
             //
             $editor = new CheckBoxGroup('smoking_edit');
-            $editor->AddValue('N', $this->RenderText('N'));
-            $editor->AddValue('Y', $this->RenderText('Y'));
+            $editor->AddValue('N', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('N')));
+            $editor->AddValue('Y', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Y')));
             $editColumn = new CustomEditColumn('Smoking', 'smoking', $editor, $this->dataset);
             $editColumn->SetAllowSetToNull(true);
             $this->ApplyCommonColumnEditProperties($editColumn);
@@ -2759,8 +2759,8 @@
             // Edit column for smoking field
             //
             $editor = new CheckBoxGroup('smoking_edit');
-            $editor->AddValue('N', $this->RenderText('N'));
-            $editor->AddValue('Y', $this->RenderText('Y'));
+            $editor->AddValue('N', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('N')));
+            $editor->AddValue('Y', $this->GetLocalizerCaptions()->GetMessageString($this->RenderText('Y')));
             $editColumn = new CustomEditColumn('Smoking', 'smoking', $editor, $this->dataset);
             $editColumn->SetAllowSetToNull(true);
             $this->ApplyCommonColumnEditProperties($editColumn);
@@ -2773,7 +2773,7 @@
             //
             // View column for allergies field
             //
-            $column = new TextViewColumn('allergies', 'Allergies', $this->dataset);
+            $column = new TextViewColumn('allergies', $this->GetLocalizerCaptions()->GetMessageString('Allergies'), $this->dataset);
             $column->SetOrderable(true);
             
             /* <inline edit column> */
@@ -2806,7 +2806,7 @@
             //
             // View column for medication field
             //
-            $column = new TextViewColumn('medication', 'Medication', $this->dataset);
+            $column = new TextViewColumn('medication', $this->GetLocalizerCaptions()->GetMessageString('Medication'), $this->dataset);
             $column->SetOrderable(true);
             
             /* <inline edit column> */
@@ -2839,7 +2839,7 @@
             //
             // View column for immunization field
             //
-            $column = new TextViewColumn('immunization', 'Immunization', $this->dataset);
+            $column = new TextViewColumn('immunization', $this->GetLocalizerCaptions()->GetMessageString('Immunization'), $this->dataset);
             $column->SetOrderable(true);
             
             /* <inline edit column> */
@@ -2872,7 +2872,7 @@
             //
             // View column for info field
             //
-            $column = new TextViewColumn('info', 'Info', $this->dataset);
+            $column = new TextViewColumn('info', $this->GetLocalizerCaptions()->GetMessageString('Info'), $this->dataset);
             $column->SetOrderable(true);
             
             /* <inline edit column> */
@@ -2966,13 +2966,13 @@
             //
             // Http Handlers
             //
-            $handler = new PageHTTPHandler('historyDetailView0_handler', new historyDetailView0Page('History', 'History', array('pid'), GetCurrentUserGrantForDataSource('historyDetailView0'), 'UTF-8', 20, 'historyDetailEdit0_handler'));
+            $handler = new PageHTTPHandler('historyDetailView0_handler', new historyDetailView0Page($this->GetLocalizerCaptions()->GetMessageString('History'), $this->GetLocalizerCaptions()->GetMessageString('History'), array('pid'), GetCurrentUserGrantForDataSource('historyDetailView0'), 'UTF-8', 20, 'historyDetailEdit0_handler'));
             GetApplication()->RegisterHTTPHandler($handler);
             $pageEdit = new historyDetailEdit0Page($this, array('pid'), array('pid'), $this->GetForeingKeyFields(), $this->CreateMasterDetailRecordGridForhistoryDetailEdit0Grid(), $this->dataset, GetCurrentUserGrantForDataSource('historyDetailEdit0'), 'UTF-8');
-            $pageEdit->SetShortCaption('History');
+            $pageEdit->SetShortCaption($pageEdit->GetLocalizerCaptions()->GetMessageString('History'));
             $pageEdit->SetHeader(GetPagesHeader());
             $pageEdit->SetFooter(GetPagesFooter());
-            $pageEdit->SetCaption('History');
+            $pageEdit->SetCaption($pageEdit->GetLocalizerCaptions()->GetMessageString('History'));
             $pageEdit->SetHttpHandlerName('historyDetailEdit0_handler');
             $handler = new PageHTTPHandler('historyDetailEdit0_handler', $pageEdit);
             GetApplication()->RegisterHTTPHandler($handler);
@@ -2995,10 +2995,10 @@
     try
     {
         $Page = new crewPage("crew.php", "crew", GetCurrentUserGrantForDataSource("crew"), 'UTF-8');
-        $Page->SetShortCaption('Crew');
+        $Page->SetShortCaption($Page->GetLocalizerCaptions()->GetMessageString('Crew'));
         $Page->SetHeader(GetPagesHeader());
         $Page->SetFooter(GetPagesFooter());
-        $Page->SetCaption('Crew');
+        $Page->SetCaption($Page->GetLocalizerCaptions()->GetMessageString('Crew'));
         $Page->SetRecordPermission(GetCurrentUserRecordPermissionsForDataSource("crew"));
 
         GetApplication()->SetMainPage($Page);

@@ -288,7 +288,7 @@ class StringSearchColumn extends SearchColumn
     {
         return new TextEdit(
             StringUtils::ReplaceIllegalPostVariableNameChars($this->GetFieldName()) . // TODO move this logic to editors
-            '_value');
+            '_value', 15);
     }
 
     protected function CreateSecondEditorControl()

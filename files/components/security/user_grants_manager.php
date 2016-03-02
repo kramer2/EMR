@@ -57,6 +57,7 @@ class HardCodedUserGrantsManager extends UserGrantsManager
             $userAppGrants = $this->applicationGrants[$userName];
         else    
             $userAppGrants = new DataSourceSecurityInfo(false, false, false, false);
+
         return SecurityInfoUtils::Merge(array($userAppGrants, $userGrants));
     }
 

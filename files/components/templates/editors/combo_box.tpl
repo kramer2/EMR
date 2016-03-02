@@ -1,5 +1,5 @@
 {if $RenderText}
-{if !$ComboBox->GetReadOnly()}<select id="{$ComboBox->GetName()}" name="{$ComboBox->GetName()}">
+{if !$ComboBox->GetReadOnly()}<select id="{$ComboBox->GetName()}" name="{$ComboBox->GetName()}" class="form-control">
 {if $ComboBox->ShowEmptyValue()}
     <option value="">{$ComboBox->GetEmptyValue()}</option>
 {/if}

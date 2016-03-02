@@ -383,8 +383,6 @@ div.page_list
     font-size: 8pt;
     text-decoration: none;
     position: relative;
-    top: -10px;
-    left: 5px;
 }
 
 div.page_navigator #current_page

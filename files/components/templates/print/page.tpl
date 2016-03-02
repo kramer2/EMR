@@ -34,6 +34,10 @@ td
 {rdelim}
 
 </style>
+
+<style type="text/css" media="print">
+  @page {ldelim} size: landscape; {rdelim}
+</style>
 <body style="background-color:white">
     <h1>{$Page->GetCaption()}</h1>
 {$Grid}

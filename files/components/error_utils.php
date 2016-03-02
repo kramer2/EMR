@@ -75,7 +75,14 @@ class CustomErrorPage
     public function GetHeader() { return $this->parentPage->GetHeader(); }
     public function GetMessage() { return $this->message; }
     public function GetDescription() { return $this->description; }
-
+    public function GetShowPageList() {return false;}
+    public function GetPrinterFriendlyAvailable() {return false; }
+    public function GetExportToExcelAvailable() {return false;}
+    public function GetExportToWordAvailable(){return false;}
+    public function GetExportToXmlAvailable(){return false;}
+    public function GetExportToCsvAvailable(){return false;}
+    public function GetExportToPdfAvailable(){return false;}
+    public function GetShowUserAuthBar(){return false;}
     public function Accept($renderer)
     {
         $renderer->RenderCustomErrorPage($this);

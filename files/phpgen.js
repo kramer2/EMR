@@ -319,16 +319,38 @@ function GetCookie(name)
 }    
     
 inputControlFocuced = false;
-        
-$(document).ready(function()
-{    
-    $('input').blur(function() {
-        inputControlFocuced = false;
+
+(function($) {
+    $(document).ready(function() {    
+        $('input').blur(function() {
+            inputControlFocuced = false;
+        });
+        $('input').focus(function() {
+            inputControlFocuced = true;
+        });
+
+        $('body').on('click', '.print-page', function(evt) {
+            var $this = $(this);
+            if ($this.attr('href') != '') {
+                $.get({
+                    url: $this.attr('href'),
+                    success: function(xhr) {
+
+                        var newWin = window.open();
+                        newWin.document.write(xhr);
+                        newWin.document.close();
+                        newWin.focus();
+                        newWin.print();
+                        newWin.close();
+
+                    }
+                });
+            }
+            evt.preventDefault();
+            return false;
+        });
     });
-    $('input').focus(function() {
-        inputControlFocuced = true;
-    });
-});
+})(jqueryBoot || jQuery);
             
 function navigate_to(link)
 {
@@ -595,3 +617,21 @@ function ShowYesNoDialog(title, text, yesAction, noAction)
         }
     );
 }
+
+function findBootstrapEnvironment() {
+  var $el = $('<div>').appendTo('body');
+
+  var result = 'xs';
+
+  $(['xs', 'sm', 'md', 'lg'].reverse()).each(function(i, e) {
+    $el.addClass('hidden-'+e);
+    if ($el.is(':hidden')) {
+      $el.remove();
+      result =e;
+      return  false;
+    }
+  });
+
+  return result;
+}
+

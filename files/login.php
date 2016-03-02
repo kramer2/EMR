@@ -1,10 +1,10 @@
 <?php
+    require_once 'database_engine/mysql_engine.php';
     require_once 'components/page.php';
     require_once 'components/renderers/renderer.php';
     require_once 'components/renderers/list_renderer.php';
     require_once 'authorization.php';
     require_once 'settings.php';
-    require_once 'database_engine/mysql_engine.php';
 
     class LoginControl
     {
@@ -32,7 +32,7 @@
 
         public function GetLastUserName() { return $this->lastUserName; }
         public function GetLastSaveidentity() { return $this->lastSaveidentity; }
-        public function CanLoginAsGuest() { return false; }
+        public function CanLoginAsGuest() { return true; }
         
         public function GetLoginAsGuestLink() 
         { 
@@ -49,8 +49,17 @@
 
         public function CheckUsernameAndPassword($username, $password, &$errorMessage)
         {
+            $captions= new Captions('UTF-8');
             try
             {
+                if ($username == "") {
+                    $errorMessage = $captions->GetMessageString('EmptyUserName');
+                    return false;
+                }
+                if ($password == '') {
+                    $errorMessage = $captions->GetMessageString('EmptyPassword');
+                    return false;
+                }
                 return $this->identityCheckStrategy->CheckUsernameAndPassword($username, $password, $errorMessage);
             }
             catch(Exception $e)
@@ -63,14 +72,25 @@
         public function SaveUserIdentity($username, $password, $saveidentity)
         {
             $expire = $saveidentity ? time() + 3600 * 24 * 365 : 0;
-            setcookie('username', $username, $expire);
-            setcookie('password', $password, $expire);
+            setcookie('scplu', json_encode(array('u'=>$this->encryptIt($username), 'p'=>$this->encryptIt($password))), $expire);
         }
 
         public function ClearUserIdentity()
         {
-            setcookie('username', '', time() - 3600);
-            setcookie('password', '', time() - 3600);
+            setcookie('scplu', '', time() - 3600);
+        }
+
+
+        private function encryptIt( $q ) {
+            $cryptKey  = 'qJB0rGtIn5UB1xG03efyCp';
+            $qEncoded      = base64_encode( mcrypt_encrypt( MCRYPT_RIJNDAEL_256, md5( $cryptKey ), $q, MCRYPT_MODE_CBC, md5( md5( $cryptKey ) ) ) );
+            return( $qEncoded );
+        }
+
+        private function decryptIt( $q ) {
+            $cryptKey  = 'qJB0rGtIn5UB1xG03efyCp';
+            $qDecoded      = rtrim( mcrypt_decrypt( MCRYPT_RIJNDAEL_256, md5( $cryptKey ), base64_decode( $q ), MCRYPT_MODE_CBC, md5( md5( $cryptKey ) ) ), "\0");
+            return( $qDecoded );
         }
 
         private function DoOnAfterLogin($userName)
@@ -108,7 +128,7 @@
             {
                 $this->ClearUserIdentity();
             }
-            elseif (isset($_COOKIE['username']) && isset($_COOKIE['password']) && !(isset($_POST['username']) && isset($_POST['password'])))
+            elseif (isset($_COOKIE['scplu']) && !(isset($_POST['username']) && isset($_POST['password'])))
             {
                 /*$username = $_COOKIE['username'];
                 $password = $_COOKIE['password'];
@@ -120,6 +140,18 @@
                 else
                 {
                 }*/
+                $uar = json_decode($_COOKIE['scplu']);
+                $usr = $this->decryptIt($uar->u);
+                $usrp = $this->decryptIt($uar->p);
+                if ($this->CheckUsernameAndPassword($usr, $usrp, $this->errorMessage)) {
+                    $this->SaveUserIdentity($usr, $usrp, true);
+                    $this->DoOnAfterLogin($usr);
+                    header('Location: ' . $this->GetUrlToRedirectAfterLogin() );
+                    exit;
+                } else {
+                    $this->lastUserName = $usr;
+                    $this->lastSaveidentity = true;
+                }
             }
             elseif (isset($_POST['username']) && isset($_POST['password']))
             {
